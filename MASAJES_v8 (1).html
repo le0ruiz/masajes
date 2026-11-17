@@ -1,0 +1,3054 @@
+<!--
+  ============================================================
+  INSTANTE DE CALMA — Pilar Quezada Param
+  Masoterapeuta certificada en San Miguel, Santiago, Chile
+  ------------------------------------------------------------
+  ARCHIVO: MASAJES_v6.html  (version definitiva para Netlify)
+  ------------------------------------------------------------
+  ESTRUCTURA GENERAL DEL ARCHIVO:
+    1. <head>  -> SEO, metadatos, datos estructurados, fuentes, CSS
+    2. <body>  -> Toda la pagina visible + JavaScript al final
+
+  SECCIONES DE LA PAGINA (en orden de aparicion):
+    #inicio            -> Hero / portada con video
+    #clientes          -> Clientes destacados (Iron Maiden, Teleton, etc.)
+    #nosotros          -> Sobre Pilar (biografia + credenciales)
+    (stats)            -> Cifras destacadas (+500 clientes, etc.)
+    #primera-sesion    -> Que esperar en tu primera sesion
+    #servicios         -> Catalogo de 6 terapias con precios
+    #empresas          -> Bienestar corporativo + planes para empresas
+    #ubicaciones       -> Donde atiende (San Miguel + domicilio)
+    #clinico           -> Proceso clinico (ficha, consentimiento, seguimiento)
+    #precios           -> Tabla completa de precios y packs
+    #testimonios       -> Carrusel de testimonios
+    (faq)              -> Preguntas frecuentes
+    #agendar           -> Reserva por WhatsApp (unica via de agenda)
+    #contacto          -> Formulario de contacto + datos
+    #contacto-corporativo -> Formulario de cotizacion empresa
+    (cta-final)        -> Llamado final a la accion
+    <footer>           -> Pie de pagina con enlaces y redes
+
+  COMO EDITAR LO MAS COMUN:
+    * Cambiar precios        -> seccion #precios (tabla) y .service-price-tag
+    * Cambiar WhatsApp/tel   -> busca "+56973002012" (aparece varias veces)
+    * Cambiar email          -> busca "instantedecalma.masaje@gmail.com"
+    * Cambiar direccion      -> busca "Llano Subercaseaux"
+    * Cambiar horario        -> busca "09:00" en esta misma zona
+    * Cambiar redes sociales -> busca "instantedecalma.masajes"
+    * Cambiar fotos          -> busca "unsplash.com" y reemplaza por tus URLs
+    * Cambiar el video hero  -> busca "hero-video" y cambia el <source src="...">
+
+  PARA SUBIR A NETLIFY:
+    1. Entra a https://app.netlify.com/drop
+    2. Arrastra este archivo MASAJES_v6.html (o la carpeta que lo contiene)
+    3. Listo. Netlify te da una URL publica.
+
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- ============================================================
+         METADATOS BASICOS - Configuracion del documento
+         charset/viewport son obligatorios para que la pagina se vea
+         bien en moviles. description y keywords ayudan al SEO.
+         Editar: cambia el contenido de description/keywords si
+         cambias el enfoque del negocio.
+    ============================================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pilar Quezada, Masoterapeuta certificada en San Miguel y Santiago. Masajes relajantes, descontracturantes, maderoterapia, drenaje linfático y bienestar corporativo.">
+    <meta name="keywords" content="masajes San Miguel, maderoterapia Santiago, drenaje linfático, masaje descontracturante, bienestar corporativo, Pilar Quezada">
+    <meta name="theme-color" content="#1A3C34">
+    <meta name="robots" content="index, follow">
+    <!-- ============================================================
+         SEO Y REDES SOCIALES
+         - canonical: URL oficial del sitio (evita contenido duplicado)
+         - og:* (Open Graph): como se ve el link al compartir en
+           Facebook/WhatsApp/LinkedIn (titulo, descripcion, imagen)
+         - twitter:card: como se ve al compartir en Twitter/X
+         Editar: cambia la URL canonical y la imagen og:image por la
+         tuya cuando tengas tu dominio real.
+    ============================================================ -->
+    <link rel="canonical" href="https://instantedecalma.cl/">
+    <meta property="og:title" content="Instante de Calma | Pilar Quezada - Masoterapeuta Certificada">
+    <meta property="og:description" content="Pausa. Respira. Vuelve Mejor. Masajes profesionales y bienestar corporativo en Santiago y San Miguel.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CL">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1200&q=80">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Instante de Calma | Masajes y Maderoterapia en San Miguel y Santiago</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://maps.google.com">
+    <!-- ============================================================
+         FUENTES Y ICONOS (cargados desde internet, no requieren
+         instalacion local)
+         - Cormorant Garamond: tipografia serif elegante para titulos
+         - Plus Jakarta Sans: tipografia sans-serif para texto cuerpo
+         - Font Awesome: iconos (WhatsApp, hoja, calendario, etc.)
+         Editar: si quieres otra fuente, busca en https://fonts.google.com
+         y reemplaza el href de abajo.
+    ============================================================ -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- ============================================================
+         DATOS ESTRUCTURADOS (JSON-LD / Schema.org)
+         Esto lo lee Google para mostrar tu negocio en Maps y
+         resultados enriquecidos. Define: nombre, direccion, telefono,
+         horarios, servicios con precios, y preguntas frecuentes.
+         IMPORTANTE: si cambias un precio en la tabla visible,
+         tambien actualizalo aqui abajo para que Google muestre
+         datos consistentes.
+    ============================================================ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "LocalBusiness",
+                "@id": "https://instantedecalma.cl/#business",
+                "name": "Instante de Calma - Pilar Quezada",
+                "description": "Masoterapeuta certificada especializada en masajes relajantes, descontracturantes, maderoterapia, drenaje linfático, ventosas, piedras calientes y bienestar corporativo",
+                "image": "https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1200&q=80",
+                "url": "https://instantedecalma.cl/",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Llano Subercaseaux 3791, 2° piso",
+                    "addressLocality": "San Miguel",
+                    "addressRegion": "Santiago",
+                    "addressCountry": "CL",
+                    "postalCode": "8920000"
+                },
+                "telephone": "+56973002012",
+                "email": "instantedecalma.masaje@gmail.com",
+                "priceRange": "$$",
+                "openingHoursSpecification": [
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+                        "opens": "09:00",
+                        "closes": "20:00"
+                    },
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": ["Saturday"],
+                        "opens": "10:00",
+                        "closes": "14:00"
+                    }
+                ],
+                "sameAs": [
+                    "https://instagram.com/instantedecalma.masajes",
+                    "https://wa.me/56973002012"
+                ]
+            },
+            {
+                "@type": "Service",
+                "serviceType": "Masaje Relajante",
+                "provider": { "@id": "https://instantedecalma.cl/#business" },
+                "areaServed": "Santiago, Chile",
+                "offers": { "@type": "Offer", "priceCurrency": "CLP", "price": "28000" }
+            },
+            {
+                "@type": "Service",
+                "serviceType": "Masaje Descontracturante",
+                "provider": { "@id": "https://instantedecalma.cl/#business" },
+                "areaServed": "Santiago, Chile",
+                "offers": { "@type": "Offer", "priceCurrency": "CLP", "price": "28000" }
+            },
+            {
+                "@type": "Service",
+                "serviceType": "Maderoterapia",
+                "provider": { "@id": "https://instantedecalma.cl/#business" },
+                "areaServed": "Santiago, Chile",
+                "offers": { "@type": "Offer", "priceCurrency": "CLP", "price": "35000" }
+            },
+            {
+                "@type": "Service",
+                "serviceType": "Drenaje Linfático Manual",
+                "provider": { "@id": "https://instantedecalma.cl/#business" },
+                "areaServed": "Santiago, Chile",
+                "offers": { "@type": "Offer", "priceCurrency": "CLP", "price": "35000" }
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    { "@type": "Question", "name": "¿Con cuánta anticipación debo agendar?", "acceptedAnswer": { "@type": "Answer", "text": "Recomiendo agendar con al menos 24-48 horas de anticipación para garantizar disponibilidad. Sin embargo, hago mi mejor esfuerzo por atender solicitudes de último minuto según la agenda del día." } },
+                    { "@type": "Question", "name": "¿Atiendes a domicilio? ¿Tiene costo adicional?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, atiendo a domicilio y en empresas. El costo del traslado varía según la ubicación. Contáctame por WhatsApp para cotizar tu sesión en casa o en tu oficina." } },
+                    { "@type": "Question", "name": "¿Qué debo llevar a mi sesión?", "acceptedAnswer": { "@type": "Answer", "text": "Solo tú y tus ganas de relajarte. Yo llevo todo lo necesario: camilla profesional, sábanas, aceites esenciales, música ambiental y toallas. Solo necesitas ropa cómoda." } },
+                    { "@type": "Question", "name": "¿El drenaje linfático o las ventosas duelen?", "acceptedAnswer": { "@type": "Answer", "text": "No. El drenaje es una técnica muy suave y sin dolor. Las ventosas que utilizo son móviles, se desplazan por la piel sin quedarse fijas, por lo que no dejan marcas visibles y solo generan una sensación de alivio." } },
+                    { "@type": "Question", "name": "¿Ofrecen servicio para empresas?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, tengo programas corporativos completos con jornadas de masajes in-company, planes mensuales y facturación empresarial. Escríbeme para diseñar un plan a la medida de tu equipo." } },
+                    { "@type": "Question", "name": "¿Cuáles son las formas de pago?", "acceptedAnswer": { "@type": "Answer", "text": "Acepto efectivo, transferencia bancaria y pagos con tarjeta (débito y crédito). Para empresas, trabajo con facturación electrónica." } }
+                ]
+            }
+        ]
+    }
+    </script>
+
+    <!-- ============================================================
+         ESTILOS (CSS) - Toda la apariencia visual de la pagina
+         Orden de los bloques:
+           1. Variables de color y diseño (lineas :root)
+           2. Reset / estilos base
+           3. Animaciones (keyframes)
+           4. Clases de aparicion progresiva (.reveal)
+           5. Accesibilidad
+           6. Componentes especificos (hero, servicios, precios, etc.)
+           7. Responsive (media queries al final)
+    ============================================================ -->
+    <style>
+        /* ============================================================
+           VARIABLES DE DISEÑO (paleta de colores + medidas)
+           Cambia aqui los colores y se actualizan en toda la pagina.
+           ------------------------------------------------------------
+           --color-deep       -> verde oscuro (fondo hero, footer)
+           --color-gold       -> dorado (acentos, botones, precios)
+           --color-sage       -> verde grisaceo (secundario)
+           --bg-primary       -> crema claro (fondo principal)
+           --bg-secondary     -> beige (fondo de secciones alternas)
+           --text-main        -> texto principal (verde oscuro)
+           --text-muted       -> texto secundario (gris verdoso)
+           --radius           -> redondeo de tarjetas (20px)
+           Editar: cambia el hex y se propaga a todo el sitio.
+        ============================================================ */
+        :root {
+            --bg-primary: #FDFCF8;
+            --bg-secondary: #F4F1EA;
+            --color-deep: #1A3C34;
+            --color-deep-light: #2A554A;
+            --color-sage: #8FA89B;
+            --color-sage-light: #B5C7BE;
+            --color-gold: #C5A059;
+            --color-gold-strong: #9C7B3F;
+            --color-gold-light: #E5C585;
+            --text-main: #2C3E38;
+            --text-muted: #6B7C75;
+            --white: #FFFFFF;
+            --shadow-soft: 0 10px 40px -10px rgba(26, 60, 52, 0.12);
+            --shadow-gold: 0 15px 40px -10px rgba(197, 160, 89, 0.35);
+            --shadow-strong: 0 20px 60px -15px rgba(26, 60, 52, 0.25);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ============================================================
+           RESET Y BASE - Configuracion global de la pagina
+           - box-sizing:border-box incluye padding en el ancho
+           - scroll-behavior:smooth hace scroll suave al hacer clic
+             en los links del menu
+           - body usa Plus Jakarta Sans como fuente por defecto
+           - .container: contenedor centrado de maximo 1280px
+        ============================================================ */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.15; }
+        a { text-decoration: none; color: inherit; }
+        button { font-family: inherit; border: none; background: none; cursor: pointer; }
+        img { max-width: 100%; display: block; opacity: 1; transition: opacity 0.5s ease; }
+        img.loading { opacity: 0; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* ============================================================
+           ANIMACIONES (@keyframes)
+           - fadeInUp: aparicion desde abajo (hero)
+           - pulse: parpadeo suave
+           - scrollLine: linea del indicador "descubre mas"
+           - pulse-green: pulso del boton flotante de WhatsApp
+           - shimmer: efecto de carga en imagenes
+           - spin: giro del spinner de envio de formularios
+        ============================================================ */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+        @keyframes scrollLine {
+            0% { transform: scaleY(0); transform-origin: top; }
+            50% { transform: scaleY(1); transform-origin: top; }
+            51% { transform-origin: bottom; }
+            100% { transform: scaleY(0); transform-origin: bottom; }
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(197, 160, 89, 0.5); }
+            to { text-shadow: 0 0 20px rgba(197, 160, 89, 0.8), 0 0 30px rgba(197, 160, 89, 0.6); }
+        }
+        @keyframes pulse-green {
+            0% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4), 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ============================================================
+           APARICION PROGRESIVA (.reveal, .reveal-left, etc.)
+           Los elementos empiezan invisibles y aparecen suavemente
+           al hacer scroll. Controlado por IntersectionObserver en
+           el JavaScript (busca "revealObserver" mas abajo).
+           Para desactivar el efecto: borra la clase "reveal" del HTML.
+        ============================================================ */
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.5s var(--transition-smooth); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-20px); transition: all 0.5s var(--transition-smooth); }
+        .reveal-left.active { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(20px); transition: all 0.5s var(--transition-smooth); }
+        .reveal-right.active { opacity: 1; transform: translateX(0); }
+        .reveal-scale { opacity: 0; transform: scale(0.97); transition: all 0.5s var(--transition-smooth); }
+        .reveal-scale.active { opacity: 1; transform: scale(1); }
+
+        /* Skip-link for accessibility */
+        /* ============================================================
+           ACCESIBILIDAD (a11y)
+           - .skip-link: enlace "Saltar al contenido" para usuarios
+             de teclado/lectores de pantalla (se ve al hacer Tab)
+           - focus-visible: borde dorado visible al navegar con teclado
+           - Las reglas de color aseguran contraste AA
+        ============================================================ */
+        .skip-link {
+            position: absolute; top: -100px; left: 1rem; z-index: 10002;
+            background: var(--color-gold); color: var(--white);
+            padding: 0.8rem 1.5rem; border-radius: var(--radius-sm);
+            font-weight: 600; font-size: 0.9rem; transition: top 0.3s ease;
+        }
+        .skip-link:focus { top: 1rem; outline: 3px solid var(--white); outline-offset: 2px; }
+
+        /* Visible focus for all interactive elements */
+        a:focus-visible, button:focus-visible, input:focus-visible,
+        textarea:focus-visible, select:focus-visible, iframe:focus-visible {
+            outline: 3px solid var(--color-gold-strong);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        /* Accessible small gold text (AA contrast on light backgrounds) */
+        .section-tag { color: var(--color-gold-strong); }
+        .footer-column h4 { color: var(--color-gold-light); }
+        .author-info span { color: var(--color-gold-strong); }
+        .pricing-card .pricing-price { color: var(--color-gold-strong); }
+        .pricing-card.featured .pricing-price { color: var(--color-gold-light); }
+        .corp-stat h3 { color: var(--color-gold-light); }
+        .client-link { color: var(--color-gold-light); }
+
+        /* Honeypot anti-spam */
+        .hidden-bot-field { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important; }
+
+        /* Hero trust badges row */
+        /* ============================================================
+           HERO TRUST - Badges de confianza del hero
+           Las estrellitas + valoracion, n de clientes, certificacion.
+           Aparecen debajo de los botones en la portada.
+        ============================================================ */
+        .hero-trust {
+            display: flex; justify-content: center; gap: 1.8rem; flex-wrap: wrap;
+            margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.15);
+            max-width: 700px; margin-left: auto; margin-right: auto;
+            animation: fadeInUp 1s ease 1s backwards;
+        }
+        .hero-trust-item {
+            display: flex; align-items: center; gap: 0.5rem;
+            color: rgba(255,255,255,0.9); font-size: 0.85rem; font-weight: 500;
+        }
+        .hero-trust-item i { color: var(--color-gold-light); font-size: 1rem; }
+        .hero-trust-item .stars { color: var(--color-gold); letter-spacing: 1px; }
+        @media (max-width: 768px) {
+            .hero-trust { gap: 1rem; }
+            .hero-trust-item { font-size: 0.75rem; }
+        }
+
+        /* Sticky mobile CTA bar */
+        /* ============================================================
+           BARRA FIJA MOVIL - Botones WhatsApp + Reservar
+           Aparece fija abajo del todo SOLO en movil (<=768px)
+           cuando el usuario pasa el hero. Se oculta al llegar al
+           footer para no taparlo. Controlada por JS (mobileCtaBar).
+        ============================================================ */
+        .mobile-cta-bar {
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 997;
+            background: rgba(253, 252, 248, 0.98); backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            padding: 0.8rem 1rem; display: none;
+            gap: 0.7rem; align-items: center; justify-content: center;
+        }
+        .mobile-cta-bar.show { display: flex; }
+        .mobile-cta-bar a {
+            flex: 1; text-align: center; padding: 0.85rem 1rem;
+            border-radius: 50px; font-weight: 600; font-size: 0.85rem;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+        }
+        .mobile-cta-bar .mcb-wa { background: #25D366; color: var(--white); }
+        .mobile-cta-bar .mcb-cal { background: var(--color-gold); color: var(--white); }
+        .mobile-cta-bar ~ .whatsapp-float { bottom: 75px; }
+        @media (max-width: 768px) {
+            .mobile-cta-bar.show { display: flex; }
+            body { padding-bottom: 70px; }
+        }
+
+        /* Testimonial slider enhanced ARIA + prev/next */
+        /* ============================================================
+           CARRUSEL DE TESTIMONIOS - Estilos de flechas prev/next
+           El carrusel muestra un testimonio a la vez, con botones
+           laterales y puntos abajo. Auto-avanza cada 6 segundos.
+        ============================================================ */
+        .testimonial-slider[role='region'] { outline: none; }
+        .testimonial-track { position: relative; }
+        .testimonial-prev, .testimonial-next {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 44px; height: 44px; border-radius: 50%; background: var(--white);
+            box-shadow: var(--shadow-soft); color: var(--color-deep);
+            display: flex; align-items: center; justify-content: center; z-index: 5;
+            transition: all 0.3s ease; border: 1px solid rgba(197,160,89,0.2);
+        }
+        .testimonial-prev { left: -10px; }
+        .testimonial-next { right: -10px; }
+        .testimonial-prev:hover, .testimonial-next:hover {
+            background: var(--color-gold); color: var(--white); border-color: var(--color-gold);
+        }
+        @media (max-width: 768px) {
+            .testimonial-prev { left: 0; }
+            .testimonial-next { right: 0; }
+        }
+
+        /* Primera sesión section */
+        /* ============================================================
+           PRIMERA SESION - 4 tarjetas explicando el paso a paso
+           (conversacion inicial -> ficha -> sesion -> seguimiento)
+           Cada tarjeta tiene un numero, icono y descripcion.
+        ============================================================ */
+        .first-session { background: var(--bg-primary); }
+        .first-session-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem; max-width: 1100px; margin: 0 auto;
+        }
+        .fs-card {
+            background: var(--white); padding: 2.2rem 1.8rem; border-radius: var(--radius);
+            box-shadow: var(--shadow-soft); transition: all 0.4s ease;
+            border: 1px solid rgba(197, 160, 89, 0.1);
+            position: relative;
+        }
+        .fs-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-strong); border-color: var(--color-gold); }
+        .fs-number {
+            position: absolute; top: 1.2rem; right: 1.4rem;
+            font-family: 'Cormorant Garamond', serif; font-size: 2.4rem;
+            font-weight: 700; color: var(--color-gold); opacity: 0.25; line-height: 1;
+        }
+        .fs-icon {
+            width: 56px; height: 56px; background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
+            border-radius: 14px; display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.2rem; font-size: 1.4rem; color: var(--white); box-shadow: var(--shadow-gold);
+        }
+        .fs-card h3 { font-size: 1.2rem; color: var(--color-deep); margin-bottom: 0.6rem; }
+        .fs-card p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.65; }
+
+        /* Pricing comparison table */
+        /* ============================================================
+           TABLA DE PRECIOS - Comparativa de servicios y packs
+           La tabla tiene scroll horizontal en movil (min-width:820px).
+           - .price-tag: precio grande (1.7rem)
+           - .savings-text: badge "ahorra $X" con fondo
+           - .featured-col-cell: columna "Pack 6 sesiones" destacada
+           Si cambias un precio aqui, tambien actualiza el JSON-LD
+             del <head> y los .service-price-tag de la seccion servicios.
+        ============================================================ */
+        .pricing-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .pricing-table {
+            width: 100%; border-collapse: separate; border-spacing: 0;
+            background: var(--white); border-radius: var(--radius);
+            overflow: hidden; box-shadow: var(--shadow-soft); min-width: 820px;
+        }
+        .pricing-table th, .pricing-table td {
+            padding: 1.4rem 1.3rem; text-align: left;
+            border-bottom: 1px solid rgba(26, 60, 52, 0.06);
+        }
+        .pricing-table thead th {
+            background: var(--color-deep); color: var(--white);
+            font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .pricing-table thead th.featured-col {
+            background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
+        }
+        .pricing-table tbody tr:hover { background: var(--bg-secondary); }
+        .pricing-table tbody tr:last-child td { border-bottom: none; }
+        .pricing-table .svc-name { font-weight: 600; color: var(--color-deep); font-size: 1.05rem; }
+        .pricing-table .svc-duration { color: var(--text-muted); font-size: 0.85rem; }
+        .pricing-table .price-tag {
+            font-family: 'Cormorant Garamond', serif; font-weight: 700;
+            color: var(--color-gold-strong); font-size: 1.7rem; line-height: 1.2;
+            vertical-align: middle; white-space: nowrap;
+        }
+        .pricing-table .price-tag .savings-text {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.78rem; font-weight: 700; color: var(--color-sage);
+            background: rgba(143, 168, 155, 0.22); padding: 0.25rem 0.7rem;
+            border-radius: 50px; display: block; width: fit-content;
+            margin-top: 0.4rem; letter-spacing: 0.3px; text-transform: uppercase;
+        }
+        .pricing-table .featured-col-cell { background: rgba(197, 160, 89, 0.13); }
+        .pricing-table .featured-col-cell .price-tag { color: var(--color-gold-strong); }
+        .pricing-table .featured-col-cell .price-tag .savings-text {
+            background: var(--color-gold); color: var(--white);
+        }
+        .pricing-table .check { color: var(--color-gold); font-weight: 700; }
+        .pricing-table .dash { color: var(--color-sage-light); font-size: 1.5rem; }
+        .pricing-table .savings-row td {
+            background: rgba(197, 160, 89, 0.1); font-weight: 600;
+            color: var(--color-gold-strong); text-align: center !important;
+            font-size: 0.95rem;
+        }
+
+        /* Magnetic buttons (subtle, only on devices with fine pointer) */
+        /* ============================================================
+           EFECTOS PARA RATON (solo dispositivos con cursor fino)
+           - Botones magneticos: siguen ligeramente al cursor
+           - Tilt en tarjetas
+           Se desactivan solos en tactil y si el usuario pide
+           "reduced motion" en su sistema operativo.
+        ============================================================ */
+        @media (pointer: fine) {
+            .btn, .btn-nav, .form-submit, .instagram-reel-btn, .client-link {
+                will-change: transform; transition: transform 0.2s var(--transition-smooth), background 0.3s, color 0.3s, box-shadow 0.3s;
+            }
+        }
+
+        /* Tilt on pricing cards (fine pointer only) */
+        @media (pointer: fine) {
+            .pricing-card, .corp-package, .client-card, .clinical-card {
+                will-change: transform;
+            }
+        }
+
+        /* Booking section (WhatsApp only) */
+        /* ============================================================
+           SECCION DE RESERVA (#agendar) - Solo WhatsApp
+           Tarjeta centrada con icono verde, boton grande y telefono.
+           No usa Calendly ni otros sistemas: todo se agenda por chat.
+           Para cambiar el mensaje precargado de WhatsApp, edita el
+           parametro ?text= en el href del boton (en el HTML mas abajo).
+        ============================================================ */
+        .booking-section { background: var(--bg-secondary); }
+        .booking-wrap {
+            background: var(--white); border-radius: var(--radius); overflow: hidden;
+            box-shadow: var(--shadow-soft); max-width: 760px; margin: 0 auto;
+            position: relative;
+        }
+        .booking-card {
+            text-align: center; padding: 3.5rem 2.5rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--bg-primary) 100%);
+        }
+        .booking-card .booking-icon {
+            width: 92px; height: 92px; background: #25D366; color: var(--white);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1.5rem; font-size: 2.6rem;
+            box-shadow: 0 15px 40px -10px rgba(37, 211, 102, 0.5);
+        }
+        .booking-card h3 { font-size: 1.9rem; color: var(--color-deep); margin-bottom: 0.8rem; }
+        .booking-card p { max-width: 540px; margin: 0 auto 2rem; line-height: 1.7; color: var(--text-muted); font-size: 1.05rem; }
+        .booking-phone {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 600;
+            color: var(--color-deep); display: inline-block; margin-bottom: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        .booking-phone:hover { color: #25D366; }
+        .booking-hours {
+            font-size: 0.9rem; color: var(--text-muted); margin-top: 2rem;
+            padding-top: 1.8rem; border-top: 1px solid rgba(26,60,52,0.08);
+            line-height: 1.7;
+        }
+        .booking-hours strong { color: var(--color-deep); }
+        @media (max-width: 768px) {
+            .booking-card { padding: 2.5rem 1.5rem; }
+            .booking-card .booking-icon { width: 76px; height: 76px; font-size: 2.1rem; }
+            .booking-card h3 { font-size: 1.6rem; }
+            .booking-phone { font-size: 1.4rem; }
+        }
+
+        /* Sanitary disclaimer */
+        /* ============================================================
+           AVISO SANITARIO - Descargo de responsabilidad legal
+           Aclara que los masajes no son tratamiento medico y que
+           Pilar esta certificada como masoterapeuta (no medico).
+           Recomendado mantenerlo por temas legales.
+        ============================================================ */
+        .sanitary-disclaimer {
+            background: linear-gradient(135deg, rgba(26, 60, 52, 0.04), rgba(197, 160, 89, 0.04));
+            border-left: 3px solid var(--color-gold);
+            padding: 1.5rem 1.8rem; border-radius: var(--radius-sm);
+            margin: 2rem auto; max-width: 800px; font-size: 0.88rem;
+            color: var(--text-muted); line-height: 1.7;
+        }
+        .sanitary-disclaimer strong { color: var(--color-deep); }
+        .sanitary-disclaimer i { color: var(--color-gold-strong); margin-right: 0.4rem; }
+
+        /* Instagram embeds in clients section */
+        .clients-embeds {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem; margin-top: 3rem;
+        }
+        /* ============================================================
+           EMBEDS DE INSTAGRAM - Tarjetas de clientes destacados
+           Muestra 3 casos reales (Iron Maiden, Teleton, Ciclorecreovia)
+           con enlace al reel/publicacion de Instagram como prueba social.
+           Para cambiar un caso: edita el href dentro de .ig-fallback.
+        ============================================================ */
+        .ig-embed {
+            background: var(--white); border-radius: var(--radius); overflow: hidden;
+            box-shadow: var(--shadow-soft); transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .ig-embed:hover { transform: translateY(-6px); box-shadow: var(--shadow-strong); }
+        .ig-embed-header {
+            display: flex; align-items: center; gap: 0.7rem; padding: 1rem 1.2rem;
+            border-bottom: 1px solid rgba(26,60,52,0.06);
+        }
+        .ig-embed-avatar {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-gold), var(--color-sage));
+            color: var(--white); display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 0.9rem;
+        }
+        .ig-embed-name { font-weight: 600; font-size: 0.9rem; color: var(--color-deep); }
+        .ig-embed-name small { display: block; font-weight: 400; color: var(--text-muted); font-size: 0.75rem; }
+        .ig-embed-tag {
+            margin-left: auto; padding: 0.3rem 0.8rem; border-radius: 50px;
+            background: rgba(197,160,89,0.15); color: var(--color-gold-strong);
+            font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .ig-embed-body { position: relative; padding-bottom: 100%; }
+        .ig-embed-body iframe,
+        .ig-embed-body .ig-fallback {
+            position: absolute; inset: 0; width: 100% !important; height: 100% !important;
+            border: none; background: linear-gradient(135deg, var(--color-deep), var(--color-deep-light));
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: var(--white); text-align: center; padding: 2rem;
+        }
+        .ig-embed-body .ig-fallback i { font-size: 3rem; color: var(--color-gold); margin-bottom: 1rem; }
+        .ig-embed-body .ig-fallback h4 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--white); }
+        .ig-embed-body .ig-fallback p { font-size: 0.85rem; opacity: 0.85; margin-bottom: 1.2rem; }
+        .ig-embed-body .ig-fallback a {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.7rem 1.4rem; border: 1.5px solid var(--color-gold);
+            color: var(--color-gold); border-radius: 50px; font-weight: 600; font-size: 0.85rem;
+            text-decoration: none; transition: all 0.3s ease;
+        }
+        .ig-embed-body .ig-fallback a:hover { background: var(--color-gold); color: var(--white); }
+
+        /* Clean logo alignment */
+        .logo i { color: var(--color-gold); font-size: 1.2rem; }
+        .navbar.scrolled .logo i { color: var(--color-gold-strong); }
+
+        /* ============================================================
+           PRELOADER - Pantalla de carga inicial
+           Muestra "Instante de Calma" con barra de progreso.
+           Solo aparece una vez por sesion (sessionStorage).
+        ============================================================ */
+        .preloader {
+            position: fixed; inset: 0; background: var(--color-deep); z-index: 10000;
+            display: flex; align-items: center; justify-content: center; flex-direction: column;
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+        .preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        .preloader-text {
+            color: var(--white); font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 6vw, 3.5rem); font-style: italic;
+            animation: pulse 2s infinite;
+        }
+        .preloader-text span { color: var(--color-gold); }
+        .preloader-bar {
+            width: 200px; height: 3px; background: rgba(255,255,255,0.1);
+            margin-top: 2rem; border-radius: 3px; overflow: hidden; position: relative;
+        }
+        .preloader-progress {
+            position: absolute; left: 0; top: 0; height: 100%; width: 0%;
+            background: var(--color-gold); transition: width 0.3s ease;
+        }
+
+        /* ============================================================
+           BARRA DE PROGRESO DE SCROLL - Linea dorada arriba del todo
+           Indica cuanto de la pagina has recorrido. Pura decoracion.
+        ============================================================ */
+        .scroll-progress {
+            position: fixed; top: 0; left: 0; width: 0%; height: 3px;
+            background: linear-gradient(90deg, var(--color-gold), var(--color-sage));
+            z-index: 10001; transition: width 0.1s ease;
+        }
+
+        /* ============================================================
+           BARRA DE NAVEGACION (navbar) - Menu superior fijo
+           - Transparente sobre el hero, se vuelve crema al hacer scroll
+           - En movil se convierte en menu hamburguesa lateral
+           Editar enlaces: busca <ul class="nav-links"> en el HTML
+        ============================================================ */
+        .navbar {
+            position: fixed; top: 0; width: 100%; z-index: 1000; padding: 1.2rem 0;
+            transition: all 0.4s ease;
+        }
+        .navbar.scrolled {
+            background: rgba(253, 252, 248, 0.95); backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px); padding: 0.8rem 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600;
+            color: var(--white); transition: color 0.4s; display: flex; align-items: center; gap: 0.5rem;
+        }
+        .navbar.scrolled .logo { color: var(--color-deep); }
+        .logo span { color: var(--color-gold); font-style: italic; }
+        
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+        .nav-links a {
+            color: var(--white); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.5px;
+            position: relative; transition: color 0.4s; text-transform: uppercase;
+        }
+        .navbar.scrolled .nav-links a { color: var(--text-main); }
+        .nav-links a:not(.btn-nav)::after {
+            content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1.5px;
+            background: var(--color-gold); transition: width 0.3s ease;
+        }
+        .nav-links a:not(.btn-nav):hover::after { width: 100%; }
+        
+        .btn-nav {
+            background: var(--color-gold); color: var(--white) !important; padding: 0.7rem 1.5rem;
+            border-radius: 50px; font-weight: 600; transition: all 0.3s ease;
+            text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem !important;
+        }
+        .btn-nav:hover { background: var(--color-deep); transform: translateY(-2px); box-shadow: var(--shadow-gold); }
+        .btn-nav::after { display: none !important; }
+
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; z-index: 1001; padding: 0.5rem; }
+        .menu-toggle span { width: 26px; height: 2px; background: var(--white); transition: 0.3s; border-radius: 2px; }
+        .navbar.scrolled .menu-toggle span { background: var(--color-deep); }
+
+        /* ============================================================
+           HERO - Portada principal a pantalla completa
+           - Video de fondo (.hero-video)
+           - Overlay oscuro para legibilidad (.hero-overlay)
+           - Contenido centrado (.hero-content): titulo, subtitulo,
+             descripcion, botones y badges de confianza
+        ============================================================ */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; position: relative;
+            overflow: hidden; padding: 7rem 0 4rem;
+        }
+        .hero-video {
+            position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;
+        }
+        .hero-overlay {
+            position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(135deg, rgba(26, 60, 52, 0.85) 0%, rgba(42, 85, 74, 0.7) 50%, rgba(26, 60, 52, 0.85) 100%);
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 850px; text-align: center; margin: 0 auto; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2); padding: 0.5rem 1.2rem;
+            border-radius: 50px; color: var(--color-gold-light); font-size: 0.75rem;
+            letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 2rem; font-weight: 500;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+        .hero-title {
+            font-size: clamp(2.8rem, 8vw, 5.5rem); color: var(--white);
+            margin-bottom: 1.5rem; animation: fadeInUp 1s ease 0.4s backwards; line-height: 1.05;
+        }
+        .hero-title .italic { font-style: italic; color: var(--color-gold); font-weight: 300; }
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem); color: var(--color-gold-light);
+            margin-bottom: 1rem; font-weight: 500; letter-spacing: 1px;
+            animation: fadeInUp 1s ease 0.5s backwards;
+        }
+        .hero-desc {
+            font-size: clamp(1rem, 2vw, 1.2rem); color: rgba(255,255,255,0.85); max-width: 600px;
+            margin: 0 auto 2.5rem; font-weight: 300; animation: fadeInUp 1s ease 0.6s backwards; line-height: 1.7;
+        }
+        .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: fadeInUp 1s ease 0.8s backwards; }
+
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.6rem; padding: 1rem 2rem;
+            border-radius: 50px; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.5px;
+            transition: all 0.4s var(--transition-smooth); position: relative; overflow: hidden;
+            text-transform: uppercase;
+        }
+        .btn-primary { background: var(--color-gold); color: var(--white); box-shadow: var(--shadow-gold); }
+        .btn-primary:hover { background: var(--color-gold-light); transform: translateY(-3px); box-shadow: 0 20px 50px -10px rgba(197, 160, 89, 0.5); }
+        .btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.4); }
+        .btn-outline:hover { background: var(--white); color: var(--color-deep); border-color: var(--white); }
+        .btn-dark { background: var(--color-deep); color: var(--white); }
+        .btn-dark:hover { background: var(--color-gold); transform: translateY(-3px); box-shadow: var(--shadow-gold); }
+        .btn-arrow { transition: transform 0.3s ease; }
+        .btn:hover .btn-arrow { transform: translateX(4px); }
+
+        .hero-scroll {
+            position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+            color: var(--white); font-size: 0.7rem; letter-spacing: 3px;
+            text-transform: uppercase; opacity: 0.6; z-index: 2;
+            display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+        }
+        .hero-scroll::after {
+            content: ''; width: 1px; height: 35px; background: var(--white);
+            animation: scrollLine 2s ease-in-out infinite;
+        }
+
+        /* ============================================================
+           CLIENTES DESTACADOS - Banda verde oscura con casos reales
+           Muestra los clientes de alto perfil (Iron Maiden, Teleton)
+           con enlaces a Instagram como prueba social.
+        ============================================================ */
+        .featured-clients {
+            background: var(--color-deep); color: var(--white);
+            padding: 4rem 0; text-align: center; position: relative; overflow: hidden;
+        }
+        .featured-clients::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(197, 160, 89, 0.15) 0%, transparent 50%);
+        }
+        .featured-clients-content { position: relative; z-index: 1; }
+        .featured-clients > .container > p { font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 2rem; opacity: 0.85; }
+        
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .client-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+            padding: 2rem;
+            transition: all 0.4s ease;
+        }
+        .client-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+            border-color: var(--color-gold);
+        }
+
+        .client-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem; font-weight: 700; color: var(--color-gold);
+            margin-bottom: 1rem; display: block;
+        }
+        .client-quote { font-style: italic; opacity: 0.9; margin-bottom: 1rem; line-height: 1.5; }
+        .client-desc { font-size: 0.9rem; opacity: 0.75; margin-bottom: 1.5rem; line-height: 1.6; }
+        .client-link {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            color: var(--color-gold); font-weight: 600; font-size: 0.9rem;
+            transition: gap 0.3s ease;
+        }
+        .client-link:hover { gap: 0.8rem; }
+
+        /* ============================================================
+           SECCIONES Y ENCABEZADOS - Estilos compartidos
+           Todas las <section> tienen padding vertical generoso.
+           .section-header: bloque de titulo centrado con etiqueta,
+           titulo grande y descripcion. Se reutiliza en toda la pagina.
+        ============================================================ */
+        section { padding: 6rem 0; position: relative; }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
+        .section-tag {
+            color: var(--color-gold); font-size: 0.8rem; font-weight: 600;
+            letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1rem; display: block;
+        }
+        .section-title { font-size: clamp(2rem, 5vw, 3.2rem); color: var(--color-deep); margin-bottom: 1.2rem; }
+        .section-title .italic { font-style: italic; color: var(--color-sage); font-weight: 300; }
+        .section-desc { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; }
+
+        /* ============================================================
+           SOBRE PILAR (#nosotros) - Biografia + credenciales
+           Dos columnas: foto a la izquierda, texto a la derecha.
+           Incluye badge "IP Los Leones" sobre la foto y 4 features
+           (certificacion, productos, ficha clinica, ubicaciones).
+        ============================================================ */
+        .about { background: var(--bg-primary); }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .about-image {
+            position: relative; border-radius: var(--radius); overflow: hidden;
+            box-shadow: var(--shadow-strong); aspect-ratio: 4/5;
+            background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--color-sage-light) 50%, var(--bg-secondary) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        .about-image.loaded { animation: none; background: transparent; }
+        .about-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .about-image:hover img { transform: scale(1.05); }
+        .about-image::before {
+            content: ''; position: absolute; top: -15px; left: -15px; width: 80px; height: 80px;
+            border-top: 2px solid var(--color-gold); border-left: 2px solid var(--color-gold); z-index: 2;
+        }
+        .about-image::after {
+            content: ''; position: absolute; bottom: -15px; right: -15px; width: 80px; height: 80px;
+            border-bottom: 2px solid var(--color-gold); border-right: 2px solid var(--color-gold); z-index: 2;
+        }
+        .about-badge {
+            position: absolute; bottom: 20px; right: 20px; background: var(--color-gold);
+            color: var(--white); padding: 1.2rem 1.5rem; border-radius: var(--radius-sm);
+            text-align: center; box-shadow: var(--shadow-gold); z-index: 3;
+        }
+        .about-badge-number { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; line-height: 1; }
+        .about-badge-text { font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 0.3rem; }
+        .about-content .section-tag { text-align: left; }
+        .about-content .section-title { text-align: left; }
+        .about-text { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.8; }
+        .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 2rem 0; }
+        .about-feature { display: flex; align-items: flex-start; gap: 0.8rem; }
+        .about-feature-icon {
+            width: 36px; height: 36px; background: var(--bg-secondary); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; color: var(--color-gold);
+            font-size: 1rem; flex-shrink: 0; font-weight: 700;
+        }
+        .about-feature h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; margin-bottom: 0.2rem; color: var(--color-deep); font-weight: 600; }
+        .about-feature p { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* ============================================================
+           ESTADISTICAS - Banda verde con 3 cifras animadas
+           Los numeros cuentan desde 0 hasta el valor al aparecer
+           (controlado por JS: busca "counterObserver").
+           Para cambiar un numero: edita data-target en el HTML.
+        ============================================================ */
+        .stats { background: var(--color-deep); color: var(--white); padding: 4rem 0; position: relative; overflow: hidden; }
+        .stats::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(197, 160, 89, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(143, 168, 155, 0.1) 0%, transparent 50%);
+        }
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; position: relative; z-index: 1; }
+        .stat-item { text-align: center; position: relative; }
+        .stat-item:not(:last-child)::after {
+            content: ''; position: absolute; right: -1rem; top: 50%; transform: translateY(-50%);
+            width: 1px; height: 60%; background: linear-gradient(to bottom, transparent, var(--color-gold), transparent);
+        }
+        .stat-number { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 600; color: var(--color-gold); line-height: 1; margin-bottom: 0.5rem; }
+        .stat-label { font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.8; font-weight: 400; }
+
+        /* ============================================================
+           SERVICIOS (#servicios) - 6 terapias alternadas
+           Cada servicio es una fila con imagen + texto, alternando
+           lado (derecha/izquierda) con .service-row.reverse.
+           Incluye beneficios y etiqueta de precio (.service-price-tag).
+           Para añadir un servicio nuevo: copia un bloque .service-row.
+        ============================================================ */
+        .services { background: var(--bg-secondary); }
+        .service-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+            margin-bottom: 5rem; padding: 2rem;
+        }
+        .service-row:last-child { margin-bottom: 0; }
+        .service-row.reverse { direction: rtl; }
+        .service-row.reverse > * { direction: ltr; }
+        
+        .service-image-wrapper {
+            position: relative; border-radius: var(--radius); overflow: hidden;
+            box-shadow: var(--shadow-strong); aspect-ratio: 4/3;
+            background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--color-sage-light) 50%, var(--bg-secondary) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        .service-image-wrapper.loaded { animation: none; background: transparent; }
+        .service-image-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .service-image-wrapper:hover img { transform: scale(1.05); }
+        
+        .service-content h3 { font-size: 2rem; color: var(--color-deep); margin-bottom: 1rem; }
+        .service-content p { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.7; }
+        .service-benefits { list-style: none; margin-bottom: 1.5rem; }
+        .service-benefits li {
+            padding: 0.5rem 0; display: flex; align-items: flex-start; gap: 0.8rem;
+            color: var(--text-main); font-size: 0.95rem;
+        }
+        .service-benefits li::before { content: '✓'; color: var(--color-gold); font-weight: 700; flex-shrink: 0; }
+        .service-price-tag {
+            display: inline-flex; align-items: baseline; gap: 0.8rem; flex-wrap: wrap;
+            background: var(--color-deep); color: var(--color-gold);
+            padding: 0.9rem 1.6rem; border-radius: 50px; font-weight: 700; font-size: 1.6rem;
+            margin-bottom: 1.5rem; box-shadow: var(--shadow-gold);
+            font-family: 'Cormorant Garamond', serif; line-height: 1.2;
+        }
+        .service-price-tag .old-price { text-decoration: line-through; opacity: 0.55; font-size: 1.1rem; color: var(--color-gold-light); font-weight: 400; }
+        .service-price-tag small { font-size: 0.85rem; font-weight: 400; opacity: 0.75; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        /* ============================================================
+           EMPRESAS (#empresas) - Bienestar corporativo
+           Fondo verde con degradado. Contiene:
+           - Estadisticas de impacto (+40% productividad, etc.)
+           - 3 planes (Basico / Empresarial / Premium) con precios
+           - CTA con datos de contacto corporativo
+        ============================================================ */
+        .corporate {
+            background: linear-gradient(135deg, var(--color-deep) 0%, var(--color-deep-light) 100%);
+            color: var(--white); position: relative; overflow: hidden;
+        }
+        .corporate::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 10% 20%, rgba(197, 160, 89, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(143, 168, 155, 0.15) 0%, transparent 40%);
+        }
+        .corporate .section-title { color: var(--white); }
+        .corporate .section-title .italic { color: var(--color-gold); }
+        .corporate .section-desc { color: rgba(255,255,255,0.85); }
+        
+        .corporate-hero { text-align: center; max-width: 800px; margin: 0 auto 4rem; position: relative; z-index: 1; }
+        .corporate-hero h2 { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 1.5rem; }
+        .corporate-hero p { font-size: 1.15rem; line-height: 1.7; opacity: 0.9; }
+        
+        .corporate-stats {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem; margin-bottom: 4rem; position: relative; z-index: 1;
+        }
+        .corp-stat {
+            background: rgba(255,255,255,0.05); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1); padding: 2rem 1.5rem;
+            border-radius: var(--radius); text-align: center; transition: all 0.4s ease;
+        }
+        .corp-stat:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); border-color: var(--color-gold); }
+        .corp-stat-icon {
+            width: 60px; height: 60px; background: var(--color-gold);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1rem; font-size: 1.5rem; color: var(--white);
+        }
+        .corp-stat h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--white); }
+        .corp-stat p { font-size: 0.9rem; opacity: 0.8; line-height: 1.5; }
+        
+        .corporate-packages {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem; position: relative; z-index: 1;
+        }
+        .corp-package {
+            background: rgba(255,255,255,0.05); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1); padding: 2.5rem 2rem;
+            border-radius: var(--radius); transition: all 0.4s ease; position: relative;
+        }
+        .corp-package:hover { background: rgba(255,255,255,0.1); transform: translateY(-8px); border-color: var(--color-gold); }
+        .corp-package.featured { background: rgba(197, 160, 89, 0.15); border-color: var(--color-gold); }
+        .corp-package-badge {
+            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            background: var(--color-gold); color: var(--white); padding: 0.4rem 1.2rem;
+            border-radius: 50px; font-size: 0.7rem; letter-spacing: 1.5px;
+            text-transform: uppercase; font-weight: 600;
+        }
+        .corp-package h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-gold); }
+        .corp-package .price {
+            font-family: 'Cormorant Garamond', serif; font-weight: 700; color: var(--white);
+            margin-bottom: 1.5rem; padding-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex; flex-direction: column; gap: 0.3rem;
+        }
+        .corp-package .price .price-duration {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem;
+            font-weight: 500; opacity: 0.7; letter-spacing: 0.5px;
+        }
+        .corp-package .price .price-amount {
+            font-size: 2.4rem; color: var(--color-gold); line-height: 1.1;
+        }
+        .corp-package.featured .price .price-amount { color: var(--color-gold-light); }
+        .corp-package .price small { font-size: 0.9rem; font-weight: 400; opacity: 0.7; }
+        .corp-package ul { list-style: none; margin-bottom: 2rem; }
+        .corp-package ul li {
+            padding: 0.6rem 0; display: flex; align-items: flex-start; gap: 0.7rem;
+            font-size: 0.95rem; opacity: 0.9;
+        }
+        .corp-package ul li::before { content: '✓'; color: var(--color-gold); font-weight: 700; flex-shrink: 0; }
+        .corp-package .btn { width: 100%; justify-content: center; }
+
+        .corporate-cta {
+            text-align: center; margin-top: 4rem; padding: 3rem 2rem;
+            background: rgba(255,255,255,0.05); border-radius: var(--radius);
+            border: 1px solid rgba(255,255,255,0.1); position: relative; z-index: 1;
+        }
+        .corporate-cta h3 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--color-gold); }
+        .corporate-cta p { margin-bottom: 2rem; opacity: 0.9; font-size: 1.05rem; }
+        .corporate-cta .contact-methods { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 1.5rem; }
+        .contact-method { display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.8); font-size: 0.95rem; }
+        .contact-method a { color: var(--color-gold); transition: color 0.3s; }
+        .contact-method a:hover { color: var(--white); }
+
+        /* ============================================================
+           UBICACIONES (#ubicaciones) - Donde atiende
+           Dos tarjetas: centro KITRADEP en San Miguel (con mapa de
+           Google embedido) y servicio a domicilio/empresas.
+           Para cambiar la direccion del mapa: edita el src del iframe
+           (busca "maps.google.com/maps?q=").
+        ============================================================ */
+        .locations { background: var(--bg-primary); }
+        .locations-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
+        .location-card {
+            background: var(--white); border-radius: var(--radius); overflow: hidden;
+            box-shadow: var(--shadow-soft); transition: all 0.4s ease;
+        }
+        .location-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-strong); }
+        .map-container { width: 100%; height: 250px; background: var(--bg-secondary); }
+        .map-container iframe { width: 100%; height: 100%; border: none; }
+        .location-info { padding: 2rem; text-align: center; }
+        .location-icon {
+            width: 60px; height: 60px; background: var(--color-gold); color: var(--white);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; margin: 0 auto 1rem; box-shadow: var(--shadow-gold);
+        }
+        .location-info h3 { font-size: 1.4rem; color: var(--color-deep); margin-bottom: 0.8rem; }
+        .location-info p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.5rem; }
+        .location-info .address { font-weight: 600; color: var(--color-deep); margin-top: 1rem; font-size: 1rem; }
+
+        /* ============================================================
+           PROCESO CLINICO (#clinico) - Compromiso profesional
+           4 tarjetas que explican: ficha clinica, consentimiento
+           informado, seguimiento de resultados y evaluacion continua.
+           Refuerza credibilidad y profesionalismo.
+        ============================================================ */
+        .clinical-process { background: var(--bg-secondary); position: relative; }
+        .clinical-process::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 10% 50%, rgba(197, 160, 89, 0.08) 0%, transparent 50%);
+        }
+        .clinical-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; position: relative; z-index: 1; }
+        .clinical-card {
+            background: var(--white); padding: 2.5rem 2rem; border-radius: var(--radius);
+            box-shadow: var(--shadow-soft); transition: all 0.4s ease; border: 1px solid rgba(197, 160, 89, 0.1);
+        }
+        .clinical-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-strong); border-color: var(--color-gold); }
+        .clinical-icon {
+            width: 70px; height: 70px; background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1.5rem; font-size: 2rem; color: var(--white); box-shadow: var(--shadow-gold);
+        }
+        .clinical-card h3 { font-size: 1.4rem; color: var(--color-deep); margin-bottom: 1rem; text-align: center; }
+        .clinical-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; text-align: center; }
+        .clinical-badge {
+            display: inline-block; background: var(--color-gold); color: var(--white);
+            padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.7rem;
+            letter-spacing: 1px; text-transform: uppercase; font-weight: 600; margin-top: 1rem;
+        }
+
+        /* ============================================================
+           PRECIOS (#precios) - Tabla comparativa de servicios
+           Contiene la tabla con todos los servicios y sus packs
+           (individual, pack 6, pack 12) + CTA de reserva + aviso
+           sanitario.
+        ============================================================ */
+        .pricing { background: var(--bg-primary); }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; max-width: 1100px; margin: 0 auto; }
+        .pricing-card {
+            background: var(--white); border-radius: var(--radius); padding: 2.5rem 2rem;
+            text-align: center; box-shadow: var(--shadow-soft); transition: all 0.4s ease;
+            position: relative; border: 1px solid transparent;
+        }
+        .pricing-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-strong); }
+        .pricing-card.featured {
+            background: linear-gradient(135deg, var(--color-deep) 0%, var(--color-deep-light) 100%);
+            color: var(--white); transform: scale(1.03); box-shadow: var(--shadow-strong);
+        }
+        .pricing-card.featured:hover { transform: scale(1.03) translateY(-8px); }
+        .pricing-badge {
+            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            background: var(--color-gold); color: var(--white); padding: 0.4rem 1.2rem;
+            border-radius: 50px; font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; box-shadow: var(--shadow-gold);
+        }
+        .pricing-name { font-size: 1.4rem; margin-bottom: 1rem; color: var(--color-deep); }
+        .pricing-card.featured .pricing-name { color: var(--white); }
+        .pricing-price { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 700; color: var(--color-gold); line-height: 1; margin-bottom: 0.5rem; }
+        .pricing-price span { font-size: 1rem; font-weight: 400; opacity: 0.7; }
+        .pricing-duration { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.8rem; letter-spacing: 1px; }
+        .pricing-card.featured .pricing-duration { color: rgba(255,255,255,0.7); }
+        .pricing-features { list-style: none; margin-bottom: 2rem; text-align: left; }
+        .pricing-features li { padding: 0.7rem 0; border-bottom: 1px solid rgba(44, 62, 56, 0.08); display: flex; align-items: center; gap: 0.7rem; font-size: 0.9rem; }
+        .pricing-card.featured .pricing-features li { border-bottom-color: rgba(255,255,255,0.1); }
+        .pricing-features li::before { content: '✓'; color: var(--color-gold); font-weight: 700; font-size: 1rem; }
+        .pricing-savings {
+            display: inline-block; background: var(--color-gold); color: var(--white);
+            padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; margin-top: 0.5rem;
+        }
+
+        /* ============================================================
+           TESTIMONIOS (#testimonios) - Carrusel de reseñas
+           3 testimonios con cita, avatar (inicial) y nombre.
+           Auto-rotacion cada 6s + flechas + puntos.
+           Para añadir uno: copia un bloque .testimonial-card.
+        ============================================================ */
+        .testimonials { background: var(--bg-secondary); }
+        .testimonial-slider { max-width: 800px; margin: 0 auto; position: relative; }
+        .testimonial-track { overflow: hidden; }
+        .testimonial-slides { display: flex; transition: transform 0.6s var(--transition-smooth); }
+        .testimonial-card { min-width: 100%; padding: 2.5rem 2rem; text-align: center; }
+        .testimonial-quote { font-size: 3.5rem; color: var(--color-gold); font-family: 'Cormorant Garamond', serif; line-height: 0.5; margin-bottom: 1.5rem; opacity: 0.5; }
+        .testimonial-text {
+            font-family: 'Cormorant Garamond', serif; font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            color: var(--color-deep); line-height: 1.6; margin-bottom: 2rem; font-style: italic; font-weight: 400;
+        }
+        .testimonial-author { display: flex; align-items: center; justify-content: center; gap: 1.2rem; }
+        .author-avatar {
+            width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--color-gold), var(--color-sage));
+            color: var(--white); display: flex; align-items: center; justify-content: center;
+            font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; box-shadow: var(--shadow-soft);
+        }
+        .author-info { text-align: left; }
+        .author-info h4 { font-size: 1.1rem; color: var(--color-deep); margin-bottom: 0.2rem; }
+        .author-info span { color: var(--color-gold); font-size: 0.8rem; letter-spacing: 1px; }
+        .testimonial-dots { display: flex; justify-content: center; gap: 0.6rem; margin-top: 2rem; }
+        .testimonial-dot {
+            width: 10px; height: 10px; border-radius: 50%; background: var(--color-sage-light);
+            border: none; transition: all 0.3s ease; padding: 0;
+        }
+        .testimonial-dot.active { background: var(--color-gold); width: 28px; border-radius: 5px; }
+
+        /* ============================================================
+           FAQ - Preguntas frecuentes (acordeon)
+           Cada pregunta es un boton que expande/contrae la respuesta.
+           Las preguntas/respuestas estan DUPLICADAS en el JSON-LD
+             del <head> (para Google). Si cambias una aqui, cambiala
+             tambien alla arriba.
+        ============================================================ */
+        .faq { background: var(--bg-primary); }
+        .faq-container { max-width: 750px; margin: 0 auto; }
+        .faq-item { background: var(--white); border-radius: var(--radius-sm); margin-bottom: 1rem; overflow: hidden; transition: all 0.3s ease; border: 1px solid transparent; }
+        .faq-item.active { border-color: var(--color-gold); box-shadow: var(--shadow-soft); }
+        .faq-question {
+            width: 100%; padding: 1.3rem 1.5rem; display: flex; justify-content: space-between;
+            align-items: center; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;
+            color: var(--color-deep); font-weight: 600; text-align: left;
+        }
+        .faq-icon {
+            width: 28px; height: 28px; border-radius: 50%; background: var(--bg-secondary);
+            display: flex; align-items: center; justify-content: center; color: var(--color-gold);
+            font-size: 1.1rem; transition: all 0.3s ease; flex-shrink: 0;
+        }
+        .faq-item.active .faq-icon { background: var(--color-gold); color: var(--white); transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; padding: 0 1.5rem; color: var(--text-muted); line-height: 1.7; font-size: 0.95rem; }
+        .faq-item.active .faq-answer { max-height: 300px; padding-bottom: 1.3rem; }
+
+        /* ============================================================
+           CONTACTO (#contacto) - Datos + formulario
+           Columna izquierda: WhatsApp, email, Instagram, direccion,
+           horario. Columna derecha: formulario que al enviarse abre
+           WhatsApp con el mensaje ya armado (sin servicios externos).
+           El numero de WhatsApp esta en el JS: busca WHATSAPP_NUMBER.
+        ============================================================ */
+        .contact { background: var(--bg-secondary); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .contact-info h3 { font-size: 1.8rem; color: var(--color-deep); margin-bottom: 1.5rem; }
+        .contact-info p { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.05rem; line-height: 1.7; }
+        .contact-details { list-style: none; }
+        .contact-details li {
+            display: flex; align-items: center; gap: 1rem; padding: 1rem 0;
+            border-bottom: 1px solid rgba(26, 60, 52, 0.1);
+        }
+        .contact-details li:last-child { border-bottom: none; }
+        .contact-details i {
+            width: 40px; height: 40px; background: var(--color-gold); color: var(--white);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-details a { color: var(--color-deep); transition: color 0.3s; }
+        .contact-details a:hover { color: var(--color-gold); }
+        
+        .contact-form {
+            background: var(--white); padding: 2.5rem; border-radius: var(--radius);
+            box-shadow: var(--shadow-soft);
+        }
+        .contact-form h3 { font-size: 1.8rem; color: var(--color-deep); margin-bottom: 1.5rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block; margin-bottom: 0.5rem; color: var(--color-deep);
+            font-weight: 600; font-size: 0.9rem;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%; padding: 0.9rem 1rem; border: 1.5px solid var(--bg-secondary);
+            border-radius: var(--radius-sm); font-family: inherit; font-size: 0.95rem;
+            transition: border-color 0.3s ease; background: var(--bg-primary);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none; border-color: var(--color-gold);
+        }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-submit {
+            width: 100%; background: var(--color-gold); color: var(--white);
+            padding: 1rem; border-radius: 50px; font-weight: 600; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease;
+            border: none; cursor: pointer; position: relative;
+        }
+        .form-submit:hover { background: var(--color-deep); transform: translateY(-2px); box-shadow: var(--shadow-gold); }
+        .form-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+        .form-submit.loading { color: transparent !important; }
+        .form-submit.loading::after {
+            content: ''; position: absolute; width: 20px; height: 20px;
+            top: 50%; left: 50%; margin-left: -10px; margin-top: -10px;
+            border: 2px solid var(--white); border-radius: 50%;
+            border-top-color: transparent; animation: spin 0.8s linear infinite;
+        }
+        .form-success, .form-error {
+            display: none; padding: 1rem; border-radius: var(--radius-sm);
+            margin-top: 1rem; text-align: center; font-weight: 600;
+            animation: fadeInUp 0.5s ease;
+        }
+        .form-success { background: var(--color-sage); color: var(--white); }
+        .form-success.show { display: block; }
+        .form-error { background: #e74c3c; color: var(--white); }
+        .form-error.show { display: block; }
+
+        /* ============================================================
+           CTA FINAL - Ultima llamada a la accion antes del footer
+           Banda verde con degradado y boton grande de reserva.
+        ============================================================ */
+        .cta-final {
+            position: relative; overflow: hidden; text-align: center; padding: 6rem 0;
+            background: linear-gradient(135deg, var(--color-deep) 0%, var(--color-deep-light) 100%);
+        }
+        .cta-final::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.2) 0%, transparent 70%);
+        }
+        .cta-content { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; padding: 0 1.5rem; }
+        .cta-content h2 { font-size: clamp(2rem, 5vw, 3.5rem); color: var(--white); margin-bottom: 1.2rem; }
+        .cta-content h2 .italic { font-style: italic; color: var(--color-gold); font-weight: 300; }
+        .cta-content p { color: rgba(255,255,255,0.85); font-size: 1.1rem; margin-bottom: 2.5rem; }
+        .cta-contact { margin-top: 2.5rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+        .cta-contact-item { color: rgba(255,255,255,0.8); font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
+        .cta-contact-item a { color: var(--color-gold); transition: color 0.3s; }
+        .cta-contact-item a:hover { color: var(--white); }
+
+        /* ============================================================
+           FOOTER - Pie de pagina
+           4 columnas: marca + redes, navegacion, servicios, contacto.
+           Incluye copyright y enlaces legales (privacidad, terminos).
+           Actualiza el año del copyright si es necesario.
+        ============================================================ */
+        footer { background: #0F2420; color: rgba(255,255,255,0.6); padding: 4rem 0 2rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand h3 { font-size: 1.8rem; color: var(--white); margin-bottom: 1rem; }
+        .footer-brand h3 span { color: var(--color-gold); font-style: italic; }
+        .footer-brand p { margin-bottom: 1.5rem; font-size: 0.95rem; font-style: italic; }
+        .footer-social { display: flex; gap: 0.8rem; }
+        .footer-social a {
+            width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,0.05);
+            display: flex; align-items: center; justify-content: center; color: var(--white);
+            transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer-social a svg { width: 20px; height: 20px; transition: transform 0.3s ease; }
+        .footer-social a:hover { background: var(--color-gold); border-color: var(--color-gold); transform: translateY(-3px); }
+        .footer-social a:hover svg { transform: scale(1.1); }
+        .footer-column h4 { color: var(--color-gold); margin-bottom: 1.2rem; font-size: 1rem; }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 0.7rem; }
+        .footer-column a { color: rgba(255,255,255,0.6); transition: all 0.3s ease; font-size: 0.9rem; }
+        .footer-column a:hover { color: var(--color-gold); padding-left: 4px; }
+        .footer-bottom { padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; font-size: 0.85rem; }
+
+        /* ============================================================
+           BOTON FLOTANTE DE WHATSAPP
+           Burbuja verde fija abajo a la derecha. Siempre visible.
+           En movil sube 75px para no chocar con la barra CTA fija.
+        ============================================================ */
+        .whatsapp-float {
+            position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px;
+            background: #25D366; color: var(--white); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); z-index: 998;
+            transition: all 0.3s ease; animation: pulse-green 2s infinite; text-decoration: none;
+        }
+        .whatsapp-float svg { width: 32px; height: 32px; }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5); }
+
+        /* ============================================================
+           RESPONSIBLE - Adaptacion a distintos tamaños de pantalla
+           992px: tablets - menu hamburguesa, grids a 1 columna
+           768px: moviles - secciones con menos padding, botones full-width
+           480px: moviles pequeños - tipografias mas pequeñas
+           (prefers-reduced-motion): desactiva animaciones si el usuario
+           lo pide en su sistema (accesibilidad).
+        ============================================================ */
+        @media (max-width: 992px) {
+            .menu-toggle { display: flex; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 85%; max-width: 380px; height: 100vh;
+                background: var(--bg-primary); flex-direction: column; justify-content: center;
+                padding: 2rem; gap: 1.8rem; transition: right 0.4s ease; box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { right: 0; }
+            .nav-links a { color: var(--color-deep) !important; font-size: 1.1rem; }
+            .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); background: var(--color-deep); }
+            .menu-toggle.active span:nth-child(2) { opacity: 0; }
+            .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); background: var(--color-deep); }
+            
+            .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .about-image { max-width: 500px; margin: 0 auto; }
+            .about-content .section-tag, .about-content .section-title { text-align: center; }
+            .about-content { text-align: center; }
+            .about-features { text-align: left; }
+            
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .stat-item:not(:last-child)::after { display: none; }
+            
+            .service-row { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+            .service-row.reverse { direction: ltr; }
+            .service-benefits li { justify-content: center; }
+            .service-image-wrapper { aspect-ratio: 16/9; }
+            
+            .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+            
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .footer-brand { grid-column: span 2; }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 4rem 0; }
+            .container { padding: 0 1.2rem; }
+            .hero { padding: 6rem 0 4rem; min-height: 90vh; }
+            .hero-title { font-size: clamp(2.2rem, 10vw, 3.5rem); }
+            .hero-desc { font-size: 1rem; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 300px; justify-content: center; padding: 1rem 1.8rem; font-size: 0.85rem; }
+            .about-features { grid-template-columns: 1fr; }
+            .about-image { aspect-ratio: 3/4; }
+            .pricing-card.featured { transform: scale(1); }
+            .pricing-card.featured:hover { transform: translateY(-8px); }
+            .cta-contact { flex-direction: column; gap: 1rem; align-items: center; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+            .footer-brand { grid-column: span 1; }
+            .footer-social { justify-content: center; }
+            .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; }
+            .whatsapp-float svg { width: 28px; height: 28px; }
+            .locations-grid { grid-template-columns: 1fr; }
+            .corporate-packages { grid-template-columns: 1fr; }
+            .contact-form { padding: 2rem 1.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            .section-title { font-size: 1.8rem; }
+            .hero-title { font-size: 2rem; }
+            .testimonial-card { padding: 2rem 1rem; }
+            .pricing-card { padding: 2rem 1.5rem; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .client-logo { font-size: 1.5rem !important; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Skip link for accessibility -->
+    <!-- Enlace de accesibilidad: aparece al navegar con Tab -->
+    <a href="#inicio" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Barra de progreso dorada arriba (indica avance del scroll) -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ============================================================
+         PRELOADER - Pantalla de carga "Instante de Calma"
+         Se oculta sola tras ~1.2s (o 2.5s maximo). Solo aparece
+         una vez por sesion.
+    ============================================================ -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-text">Instante de <span>Calma</span></div>
+        <div class="preloader-bar">
+            <div class="preloader-progress" id="preloaderProgress"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         NAVBAR - Menu de navegacion superior (fijo)
+         Enlaces: Inicio, Sobre Pilar, Servicios, Empresas, Ubicacion,
+         Precios, Contacto + boton "Agendar".
+         En movil se convierte en menu hamburguesa.
+    ============================================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#inicio" class="logo">
+                <i class="fa-solid fa-leaf"></i> Instante de <span>Calma</span>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Sobre Pilar</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#empresas">Empresas</a></li>
+                <li><a href="#ubicaciones">Ubicación</a></li>
+                <li><a href="#precios">Precios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#agendar" class="btn-nav">Agendar</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+         SECCION: HERO (#inicio) - Portada principal
+         Lo primero que ve el visitante. Ocupa toda la pantalla.
+         Contenido: video de fondo, badge "Masoterapeuta Certificada",
+         titulo "Pausa. Respira. Vuelve Mejor.", nombre de Pilar,
+         descripcion, botones de reserva/servicios, badges de confianza.
+         EDITAR:
+           - Video: cambia el <source src="..."> del <video>
+           - Titulo/descripcion: en .hero-title, .hero-desc
+           - Badges de confianza: en .hero-trust
+    ============================================================ -->
+    <section id="inicio" class="hero">
+        <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1920&q=80">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-getting-a-back-massage-4292-large.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fa-solid fa-certificate" style="color: var(--color-gold-light);"></i> Masoterapeuta Certificada</div>
+                <h1 class="hero-title">Pausa. Respira.<br><span class="italic">Vuelve Mejor.</span></h1>
+                <p class="hero-subtitle">Pilar Alejandra Quezada Param</p>
+                <p class="hero-desc">Terapeuta certificada por el Instituto Profesional Los Leones. Masajes profesionales diseñados para liberar tensiones, recuperar tu energía y reconectar con tu bienestar interior en San Miguel y Santiago.</p>
+                <div class="hero-buttons">
+                    <a href="#agendar" class="btn btn-primary">
+                        <i class="fas fa-calendar-check"></i> Reservar mi sesión <span class="btn-arrow">→</span>
+                    </a>
+                    <a href="#servicios" class="btn btn-outline">Descubrir Servicios</a>
+                </div>
+                <div class="hero-trust">
+                    <div class="hero-trust-item"><span class="stars">★★★★★</span> 4.9/5 valoraciones</div>
+                    <div class="hero-trust-item"><i class="fa-solid fa-users"></i> +500 sesiones</div>
+                    <div class="hero-trust-item"><i class="fa-solid fa-graduation-cap"></i> IP Los Leones</div>
+                    <div class="hero-trust-item"><i class="fa-solid fa-heart"></i> Staff Teletón</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">Descubre más</div>
+    </section>
+
+    <!-- ============================================================
+         SECCION: CLIENTES DESTACADOS (#clientes)
+         Banda verde oscura que muestra casos reales de alto perfil:
+         Iron Maiden (backstage), Teleton (staff), Ciclorecreovia.
+         Cada tarjeta enlaza a un reel/publicacion de Instagram.
+         EDITAR: cambia los href de Instagram por tus casos reales.
+    ============================================================ -->
+    <section class="featured-clients" id="clientes">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <span class="section-tag" style="color: var(--color-gold-light);">Confían en Nosotros</span>
+                <h2 class="section-title" style="color: var(--white);">Clientes y <span class="italic" style="color: var(--color-gold-light);">Aliados Especiales</span></h2>
+                <p class="section-desc" style="color: rgba(255,255,255,0.85);">Masajes profesionales llevados a equipos técnicos, voluntarios y comunidades reales. Cada caso con su video en Instagram como prueba social.</p>
+            </div>
+            
+            <div class="clients-embeds">
+                <!-- Cliente 1: Iron Maiden (backstage real) -->
+                <div class="ig-embed reveal-scale">
+                    <div class="ig-embed-header">
+                        <div class="ig-embed-avatar"><i class="fa-solid fa-guitar"></i></div>
+                        <div class="ig-embed-name">Backstage de Conciertos<small>Producción musical internacional</small></div>
+                        <span class="ig-embed-tag">Música</span>
+                    </div>
+                    <div class="ig-embed-body">
+                        <div class="ig-fallback">
+                            <i class="fab fa-instagram"></i>
+                            <h4>Backstage de Conciertos</h4>
+                            <p>Masajes profesionales para equipos técnicos y artísticos de producciones musicales internacionales en Santiago.</p>
+                            <a href="https://www.instagram.com/reel/DfLwRQER5TK/" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-instagram"></i> Ver reel en Instagram
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cliente 2: Teletón -->
+                <div class="ig-embed reveal-scale">
+                    <div class="ig-embed-header">
+                        <div class="ig-embed-avatar"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                        <div class="ig-embed-name">Staff de la Teletón<small>Profesionales y voluntarios</small></div>
+                        <span class="ig-embed-tag">Salud</span>
+                    </div>
+                    <div class="ig-embed-body">
+                        <div class="ig-fallback">
+                            <i class="fab fa-instagram"></i>
+                            <h4>Staff de la Teletón</h4>
+                            <p>Jornadas de relajación y alivio muscular para el incansable equipo de profesionales, terapeutas y voluntarios.</p>
+                            <a href="https://www.instagram.com/reel/DflQW32RLHm/" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-instagram"></i> Ver reel en Instagram
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cliente 3: Ciclorecreovía & Calorub -->
+                <div class="ig-embed reveal-scale">
+                    <div class="ig-embed-header">
+                        <div class="ig-embed-avatar"><i class="fa-solid fa-bicycle"></i></div>
+                        <div class="ig-embed-name">Ciclorecreovía & Calorub<small>Eventos comunitarios de salud</small></div>
+                        <span class="ig-embed-tag">Comunidad</span>
+                    </div>
+                    <div class="ig-embed-body">
+                        <div class="ig-fallback">
+                            <i class="fab fa-instagram"></i>
+                            <h4>Ciclorecreovía & Calorub</h4>
+                            <p>Recuperación muscular, estiramientos y bienestar en eventos comunitarios, en alianza con marcas de confianza.</p>
+                            <a href="https://www.instagram.com/p/DfM_YZwRiy0/" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-instagram"></i> Ver publicación en Instagram
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECCION: SOBRE PILAR (#nosotros)
+         Biografia + credenciales profesionales.
+         Foto a la izquierda con badge "IP Los Leones", texto a la
+         derecha con 4 features (certificacion, productos, ficha,
+         ubicaciones).
+         EDITAR: cambia la foto (busca "photo-1600334129128") y los
+         textos en .about-text.
+    ============================================================ -->
+    <section id="nosotros" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image reveal-left">
+                    <!-- REEMPLAZAR CON TU FOTO REAL DE INSTAGRAM -->
+                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=800&q=80" 
+                         alt="Pilar Quezada - Masoterapeuta certificada en su centro de atención en San Miguel, Santiago" 
+                         width="800" height="1000" loading="lazy"
+                         onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%221000%22><rect fill=%22%231A3C34%22 width=%22800%22 height=%221000%22/><text x=%22400%22 y=%22500%22 font-family=%22Arial%22 font-size=%2240%22 fill=%22%23C5A059%22 text-anchor=%22middle%22>Instante de Calma</text></svg>'">
+                    <div class="about-badge">
+                        <div class="about-badge-number">IP Los Leones</div>
+                        <div class="about-badge-text">Masoterapeuta 2023</div>
+                    </div>
+                </div>
+                <div class="about-content reveal-right">
+                    <span class="section-tag">Sobre Mí</span>
+                    <h2 class="section-title">Pilar Alejandra Quezada Param</h2>
+                    <p class="about-text">Masoterapeuta certificada, egresada del <strong>Instituto Profesional Los Leones</strong> (reconocido por el Ministerio de Educación de Chile) el 25 de agosto de 2023. Formación equivalente a 5 semestres académicos en Masoterapia.</p>
+                    <p class="about-text">Mi enfoque combina técnicas ancestrales con metodologías modernas para ofrecerte una experiencia transformadora. Trabajo con ficha clínica personalizada, consentimiento informado y seguimiento profesional de tus resultados.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div><h4>Certificación Oficial</h4><p>Instituto Profesional Los Leones</p></div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon"><i class="fa-solid fa-leaf"></i></div>
+                            <div><h4>Productos Naturales</h4><p>Aceites esenciales de alta calidad</p></div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+                            <div><h4>Ficha Clínica</h4><p>Anamnesis profesional y confidencial</p></div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div><h4>Múltiples Ubicaciones</h4><p>San Miguel, Santiago y a domicilio</p></div>
+                        </div>
+                    </div>
+                    <a href="#servicios" class="btn btn-dark">Conoce mis servicios <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECCION: ESTADISTICAS (sin id, banda decorativa)
+         3 cifras animadas: +500 clientes, 7 especialidades,
+         50 empresas.
+         Los numeros cuentan desde 0 al aparecer (JS: counterObserver).
+         EDITAR: cambia data-target, data-divide o data-suffix.
+    ============================================================ -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item reveal"><div class="stat-number" data-target="500">0</div><div class="stat-label">Clientes Atendidos</div></div>
+                <div class="stat-item reveal"><div class="stat-number" data-target="7">0</div><div class="stat-label">Especialidades</div></div>
+                <div class="stat-item reveal"><div class="stat-number" data-target="50">0</div><div class="stat-label">Empresas Atendidas</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECCION: PRIMERA SESION (#primera-sesion)
+         4 tarjetas explicando que esperar paso a paso:
+         01 conversacion inicial, 02 ficha y consentimiento,
+         03 la sesion, 04 seguimiento.
+         Ayuda a reducir ansiedad de clientes nuevos.
+    ============================================================ -->
+    <section id="primera-sesion" class="first-session">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Tu Primera Sesión</span>
+                <h2 class="section-title">Qué esperar <span class="italic">paso a paso</span></h2>
+                <p class="section-desc">Si es tu primera vez con masoterapia profesional, aquí tienes el recorrido completo para que llegues tranquila y segura.</p>
+            </div>
+            <div class="first-session-grid">
+                <div class="fs-card reveal">
+                    <div class="fs-number">01</div>
+                    <div class="fs-icon"><i class="fa-solid fa-comments"></i></div>
+                    <h3>Conversación inicial</h3>
+                    <p>Conversamos por WhatsApp sobre tu objetivo: estrés, dolor, modelado. Te envío el formulario de anamnesis para completar antes de la sesión.</p>
+                </div>
+                <div class="fs-card reveal">
+                    <div class="fs-number">02</div>
+                    <div class="fs-icon"><i class="fa-solid fa-file-signature"></i></div>
+                    <h3>Ficha y consentimiento</h3>
+                    <p>Al llegar, revisamos juntos tu ficha clínica y firmas el consentimiento informado. Confidencial, profesional y sin improvisación.</p>
+                </div>
+                <div class="fs-card reveal">
+                    <div class="fs-number">03</div>
+                    <div class="fs-icon"><i class="fa-solid fa-spa"></i></div>
+                    <h3>La sesión</h3>
+                    <p>60 minutos de terapia con aceites esenciales, música ambiental y camilla profesional. Tu cuerpo y mente agradecidos desde el primer minuto.</p>
+                </div>
+                <div class="fs-card reveal">
+                    <div class="fs-number">04</div>
+                    <div class="fs-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <h3>Seguimiento</h3>
+                    <p>Post-sesión recibes recomendaciones de hidratación, descanso y autocuidado. En maderoterapia, control de medidas sesión por sesión.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECCION: SERVICIOS (#servicios) - Catalogo de 6 terapias
+         Cada servicio es una fila alternada (imagen|texto, luego
+         texto|imagen) con: titulo, descripcion, lista de beneficios,
+         etiqueta de precio y boton "Reservar" por WhatsApp.
+         Servicios: Relajante, Descontracturante, Maderoterapia,
+         Drenaje Linfatico, Ventosas, Piedras Calientes.
+         EDITAR PRECIOS: busca .service-price-tag. Manten sincronizado
+         con la tabla de #precios y el JSON-LD del <head>.
+    ============================================================ -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Nuestras Especialidades</span>
+                <h2 class="section-title">Terapias diseñadas <span class="italic">para tu bienestar</span></h2>
+                <p class="section-desc">Cada técnica es aplicada con profesionalismo, utilizando protocolos clínicos rigurosos para garantizar resultados visibles y una experiencia transformadora.</p>
+            </div>
+
+            <!-- Service 1: Relajante -->
+            <div class="service-row reveal">
+                <div class="service-image-wrapper">
+                    <!-- REEMPLAZAR CON TU FOTO REAL DE INSTAGRAM -->
+                    <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&q=80" 
+                         alt="Masaje relajante con aceites esenciales - técnica suave y terapéutica" 
+                         width="800" height="600" loading="lazy"
+                         onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22><rect fill=%22%231A3C34%22 width=%22800%22 height=%22600%22/><text x=%22400%22 y=%22300%22 font-family=%22Arial%22 font-size=%2236%22 fill=%22%23C5A059%22 text-anchor=%22middle%22>Masaje Relajante</text></svg>'">
+                </div>
+                <div class="service-content">
+                    <h3>Masaje Relajante</h3>
+                    <p>Técnica suave y terapéutica diseñada para disminuir el estrés, liberar tensiones musculares y equilibrar cuerpo y mente. A través de movimientos lentos, fluidos y continuos, se logra mejorar la circulación y calmar el sistema nervioso.</p>
+                    <ul class="service-benefits">
+                        <li>Reduce el estrés y la ansiedad</li>
+                        <li>Mejora la calidad del sueño</li>
+                        <li>Relaja músculos y articulaciones</li>
+                        <li>Promueve bienestar y equilibrio emocional</li>
+                    </ul>
+                    <a href="https://wa.me/56973002012?text=Hola,%20quiero%20agendar%20un%20Masaje%20Relajante" class="btn btn-dark" target="_blank" rel="noopener noreferrer">Consultar y Agendar <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+
+            <!-- Service 2: Descontracturante -->
+            <div class="service-row reverse reveal">
+                <div class="service-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547149300-f4949b89a23c?w=800&q=80" 
+                         alt="Masaje descontracturante con técnica profunda para aliviar nudos musculares" 
+                         width="800" height="600" loading="lazy"
+                         onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22><rect fill=%22%231A3C34%22 width=%22800%22 height=%22600%22/><text x=%22400%22 y=%22300%22 font-family=%22Arial%22 font-size=%2236%22 fill=%22%23C5A059%22 text-anchor=%22middle%22>Descontracturante</text></svg>'">
+                </div>
+                <div class="service-content">
+                    <h3>Masaje Descontracturante</h3>
+                    <p>Técnica profunda y precisa diseñada para aliviar la tensión acumulada en músculos rígidos y dolorosos. Trabaja directamente sobre nudos musculares y puntos de dolor, ayudando a reducir molestias y recuperar la energía corporal.</p>
+                    <ul class="service-benefits">
+                        <li>Alivia contracturas y dolores musculares</li>
+                        <li>Mejora la postura y la flexibilidad</li>
+                        <li>Activa la circulación y oxigenación del músculo</li>
+                        <li>Entrega una sensación de alivio inmediato</li>
+                    </ul>
+                    <div class="service-price-tag">
+                        <span class="old-price">$30.000</span>
+                        $28.000 <small>CLP / 60 min</small>
+                    </div>
+                    <a href="https://wa.me/56973002012?text=Hola,%20quiero%20agendar%20un%20Masaje%20Descontracturante" class="btn btn-dark" target="_blank" rel="noopener noreferrer">Reservar ahora <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+
+            <!-- Service 3: Maderoterapia -->
+            <div class="service-row reveal">
+                <div class="service-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80" 
+                         alt="Maderoterapia con instrumentos de madera para modelar el cuerpo" 
+                         width="800" height="600" loading="lazy"
+                         onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22><rect fill=%22%231A3C34%22 width=%22800%22 height=%22600%22/><text x=%22400%22 y=%22300%22 font-family=%22Arial%22 font-size=%2236%22 fill=%22%23C5A059%22 text-anchor=%22middle%22>Maderoterapia</text></svg>'">
+                </div>
+                <div class="service-content">
+                    <h3>Maderoterapia - Método Natural</h3>
+                    <p>Resultados visibles y medibles desde la primera sesión. Esta técnica ayuda a definir, reducir volumen, desinflamar, mejorar la celulitis y moldear zonas específicas mediante herramientas de madera que estimulan el sistema linfático y circulatorio.</p>
+                    <ul class="service-benefits">
+                        <li>Reduce retención de líquidos y celulitis</li>
+                        <li>Modela cintura, piernas, brazos y espalda</li>
+                        <li>Mejora la textura de la piel</li>
+                        <li>Activa circulación y metabolismo</li>
+                    </ul>
+                    <div class="service-price-tag">
+                        $35.000 <small>CLP / sesión</small>
+                    </div>
+                    <a href="https://wa.me/56973002012?text=Hola,%20quiero%20info%20sobre%20Maderoterapia" class="btn btn-dark" target="_blank" rel="noopener noreferrer">Ver Paquetes <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+
+            <!-- Service 4: Drenaje Linfático -->
+            <div class="service-row reverse reveal">
+                <div class="service-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=80" 
+                         alt="Drenaje linfático manual suave para reducir inflamación" 
+                         width="800" height="600" loading="lazy"
+                         onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22><rect fill=%22%231A3C34%22 width=%22800%22 height=%22600%22/><text x=%22400%22 y=%22300%22 font-family=%22Arial%22 font-size=%2236%22 fill=%22%23C5A059%22 text-anchor=%22middle%22>Drenaje Linfático</text></svg>'">
+                </div>
+                <div class="service-content">
+                    <h3>Drenaje Linfático Manual</h3>
+                    <p>Técnica manual suave, precisa y altamente efectiva que estimula el sistema linfático para mover y eliminar líquidos, toxinas e inflamación acumulada. Ideal para alivio inmediato, sensación de livianidad y reducción visible de la hinchazón.</p>
+                    <ul class="service-benefits">
+                        <li>Reduce inflamación, edema y retención de líquidos</li>
+                        <li>Mejora la circulación linfática y sanguínea</li>
+                        <li>Relaja el sistema nervioso</li>
+                        <li>Favorece la recuperación post estrés físico o laboral</li>
+                    </ul>
+                    <div class="service-price-tag">
+                        <span class="old-price">$45.000</span>
+                        $35.000 <small>CLP / 60 min</small>
+                    </div>
+                    <a href="https://wa.me/56973002012?text=Hola,%20quiero%20agendar%20Drenaje%20Linfático" class="btn btn-dark" target="_blank" rel="noopener noreferrer">Reservar ahora <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+
+            <!-- Service 5: Ventosas -->
+            <div class="service-row reveal">
+                <div class="service-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1606170033648-9d5536a4b75c?w=800&q=80" 
+                         alt="Terapia con ventosas móviles para aliviar tensión sin dejar marcas" 
+                         width="800" height="600" loading="lazy"
+                         onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22><rect fill=%22%231A3C34%22 width=%22800%22 height=%22600%22/><text x=%22400%22 y=%22300%22 font-family=%22Arial%22 font-size=%2236%22 fill=%22%23C5A059%22 text-anchor=%22middle%22>Ventosas Móviles</text></svg>'">
+                </div>
+                <div class="service-content">
+                    <h3>Ventosas Móviles (Sin Marcas)</h3>
+                    <p>Técnica natural que utiliza copas en movimiento para generar succión suave y controlada. A diferencia de las ventosas tradicionales, no deja marcas en la piel, ya que no se mantienen fijas en un solo punto.</p>
+                    <ul class="service-benefits">
+                        <li>Alivia dolores musculares y contracturas</li>
+                        <li>Mejora la circulación sanguínea</li>
+                        <li>Reduce inflamación y retención de líquidos</li>
+                        <li>Libera tensión acumulada sin dejar huellas</li>
+                    </ul>
+                    <a href="https://wa.me/56973002012?text=Hola,%20quiero%20info%20sobre%20Ventosas" class="btn btn-dark" target="_blank" rel="noopener noreferrer">Consultar y Agendar <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+
+            <!-- Service 6: Piedras Calientes -->
+            <div class="service-row reverse reveal">
+                <div class="service-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80" 
+                         alt="Masaje con piedras calientes de basalto en puntos energéticos" 
+                         width="800" height="600" loading="lazy"
+                         onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22><rect fill=%22%231A3C34%22 width=%22800%22 height=%22600%22/><text x=%22400%22 y=%22300%22 font-family=%22Arial%22 font-size=%2236%22 fill=%22%23C5A059%22 text-anchor=%22middle%22>Piedras Calientes</text></svg>'">
+                </div>
+                <div class="service-content">
+                    <h3>Masaje con Piedras Calientes</h3>
+                    <p>Un masaje profundamente relajante que utiliza piedras de basalto calentadas a una temperatura segura. Las piedras se colocan en puntos estratégicos y se usan con maniobras suaves para liberar tensión y mejorar el flujo energético.</p>
+                    <ul class="service-benefits">
+                        <li>Disminuye el estrés y alivia contracturas leves</li>
+                        <li>Reduce la rigidez muscular</li>
+                        <li>Mejora el flujo energético</li>
+                        <li>Entrega una relajación profunda desde la primera sesión</li>
+                    </ul>
+                    <a href="https://wa.me/56973002012?text=Hola,%20quiero%20agendar%20Piedras%20Calientes" class="btn btn-dark" target="_blank" rel="noopener noreferrer">Consultar y Agendar <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECCION: EMPRESAS (#empresas) - Bienestar corporativo
+         Contiene: hero + 4 stats de impacto + 3 planes con precio
+         (Basico $180.000, Empresarial $320.000, Premium a medida) +
+         CTA con contacto directo.
+         EDITAR: cambia los precios en .corp-package .price-amount.
+    ============================================================ -->
+    <section id="empresas" class="corporate">
+        <div class="container">
+            <div class="corporate-hero reveal">
+                <span class="section-tag" style="color: var(--color-gold);">Bienestar Corporativo</span>
+                <h2>Lleva el bienestar a <span class="italic">tu empresa</span></h2>
+                <p>Programas de masoterapia in-company diseñados para mejorar el clima laboral, reducir el ausentismo por estrés y aumentar la productividad de tu equipo. Experiencia comprobada con organizaciones de alto perfil.</p>
+            </div>
+
+            <div class="corporate-stats">
+                <div class="corp-stat reveal">
+                    <div class="corp-stat-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>+40% Productividad</h3>
+                    <p>Equipos relajados rinden más y mejor</p>
+                </div>
+                <div class="corp-stat reveal">
+                    <div class="corp-stat-icon"><i class="fas fa-heart"></i></div>
+                    <h3>-60% Ausentismo</h3>
+                    <p>Menos licencias médicas por estrés</p>
+                </div>
+                <div class="corp-stat reveal">
+                    <div class="corp-stat-icon"><i class="fas fa-users"></i></div>
+                    <h3>+85% Clima Laboral</h3>
+                    <p>Mejora en satisfacción del equipo</p>
+                </div>
+                <div class="corp-stat reveal">
+                    <div class="corp-stat-icon"><i class="fas fa-award"></i></div>
+                    <h3>100% Profesional</h3>
+                    <p>Terapeuta certificada con experiencia</p>
+                </div>
+            </div>
+
+            <div class="section-header reveal" style="margin-top: 3rem;">
+                <span class="section-tag" style="color: var(--color-gold);">Planes para Empresas</span>
+                <h2 class="section-title" style="color: var(--white);">Soluciones <span class="italic">a medida</span></h2>
+                <p class="section-desc" style="color: rgba(255,255,255,0.85);">Elige el plan que mejor se adapte al tamaño y necesidades de tu organización.</p>
+            </div>
+
+            <div class="corporate-packages">
+                <div class="corp-package reveal">
+                    <h3>Plan Básico</h3>
+                    <div class="price">
+                        <span class="price-duration">Jornada de 4 horas</span>
+                        <span class="price-amount">desde $180.000</span>
+                    </div>
+                    <ul>
+                        <li>Hasta 8 colaboradores atendidos</li>
+                        <li>Masajes de 25 minutos c/u</li>
+                        <li>Silla ergonómica incluida</li>
+                        <li>Relajante o descontracturante</li>
+                        <li>Ideal para equipos pequeños</li>
+                    </ul>
+                    <a href="https://wa.me/56973002012?text=Hola,%20quiero%20cotizar%20el%20Plan%20Básico%20Corporativo" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Cotizar Plan <span class="btn-arrow">→</span></a>
+                </div>
+
+                <div class="corp-package featured reveal">
+                    <div class="corp-package-badge">Más Solicitado</div>
+                    <h3>Plan Empresarial</h3>
+                    <div class="price">
+                        <span class="price-duration">Jornada de 8 horas</span>
+                        <span class="price-amount">desde $320.000</span>
+                    </div>
+                    <ul>
+                        <li>Hasta 16 colaboradores atendidos</li>
+                        <li>Masajes de 30 minutos c/u</li>
+                        <li>Silla ergonómica + camilla</li>
+                        <li>Variedad de técnicas disponibles</li>
+                        <li>Informe de bienestar del equipo</li>
+                        <li>Ideal para empresas medianas</li>
+                    </ul>
+                    <a href="https://wa.me/56973002012?text=Hola,%20quiero%20cotizar%20el%20Plan%20Empresarial" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Cotizar Plan <span class="btn-arrow">→</span></a>
+                </div>
+
+                <div class="corp-package reveal">
+                    <h3>Plan Premium</h3>
+                    <div class="price">
+                        <span class="price-duration">Programa Mensual</span>
+                        <span class="price-amount">a medida</span>
+                    </div>
+                    <ul>
+                        <li>Visitas semanales o quincenales</li>
+                        <li>Equipo completo de atención</li>
+                        <li>Todas las técnicas disponibles</li>
+                        <li>Seguimiento de bienestar</li>
+                        <li>Reportes mensuales a RRHH</li>
+                        <li>Descuentos por volumen</li>
+                    </ul>
+                    <a href="https://wa.me/56973002012?text=Hola,%20quiero%20cotizar%20el%20Plan%20Premium%20Corporativo" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Cotizar Plan <span class="btn-arrow">→</span></a>
+                </div>
+            </div>
+
+            <div class="corporate-cta reveal">
+                <h3>¿Tu empresa necesita bienestar?</h3>
+                <p>Agenda una reunión sin compromiso para diseñar un plan personalizado según el tamaño de tu equipo, presupuesto y objetivos de RRHH.</p>
+                <a href="https://wa.me/56973002012?text=Hola,%20quiero%20información%20sobre%20bienestar%20corporativo%20para%20mi%20empresa" class="btn btn-primary" target="_blank" style="margin-bottom: 1.5rem;" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i> Hablar con Pilar <span class="btn-arrow">→</span>
+                </a>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:instantedecalma.masaje@gmail.com">instantedecalma.masaje@gmail.com</a>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+56973002012">+56 9 7300 2012</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECCION: UBICACIONES (#ubicaciones)
+         Tarjeta 1: Centro KITRADEP en San Miguel (con mapa Google).
+         Tarjeta 2: Servicio a domicilio/empresas.
+         EDITAR DIRECCION: cambia el "q=" del iframe de Google Maps
+         y el texto en .location-info .address.
+    ============================================================ -->
+    <section id="ubicaciones" class="locations">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Dónde Atiendo</span>
+                <h2 class="section-title">Mi <span class="italic">Ubicación</span></h2>
+                <p class="section-desc">Te espero en mi centro de atención o voy directamente a tu empresa u hogar.</p>
+            </div>
+            <div class="locations-grid">
+                <div class="location-card reveal-left">
+                    <div class="map-container">
+                        <iframe src="https://maps.google.com/maps?q=Llano+Subercaseaux+3791,+San+Miguel,+Santiago,+Chile&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" title="Mapa Centro Kinedeportivo KITRADEP"></iframe>
+                    </div>
+                    <div class="location-info">
+                        <div class="location-icon"><i class="fas fa-building"></i></div>
+                        <h3>Centro Kinedeportivo KITRADEP</h3>
+                        <p>Atención profesional en centro kinésico</p>
+                        <p class="address">Llano Subercaseaux 3791, 2° piso<br>San Miguel, Santiago</p>
+                    </div>
+                </div>
+                <div class="location-card reveal-right">
+                    <div class="map-container" style="background: linear-gradient(135deg, var(--color-deep) 0%, var(--color-deep-light) 100%); display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: var(--white); padding: 2rem;">
+                            <i class="fas fa-truck" style="font-size: 4rem; color: var(--color-gold); margin-bottom: 1rem;"></i>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Servicio Móvil</h3>
+                            <p style="opacity: 0.9;">Vamos a tu empresa u hogar</p>
+                        </div>
+                    </div>
+                    <div class="location-info">
+                        <div class="location-icon"><i class="fas fa-home"></i></div>
+                        <h3>A Domicilio y Empresas</h3>
+                        <p>Llevo el servicio completo a tu ubicación</p>
+                        <p class="address">Santiago y comunas aledañas<br>Consulta cobertura y costos</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;" class="reveal">
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">¿Prefieres la comodidad de tu hogar u oficina?</p>
+                <a href="https://wa.me/56973002012?text=Hola,%20quiero%20consultar%20por%20atención%20a%20domicilio" class="btn btn-dark" target="_blank" rel="noopener noreferrer">Consultar Servicio a Domicilio <span class="btn-arrow">→</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECCION: PROCESO CLINICO (#clinico)
+         4 tarjetas que explican el rigor profesional: ficha clinica,
+         consentimiento informado, seguimiento de resultados,
+         evaluacion continua. Genera confianza y credibilidad.
+    ============================================================ -->
+    <section id="clinico" class="clinical-process">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Mi Compromiso Profesional</span>
+                <h2 class="section-title">Proceso Clínico <span class="italic">Certificado</span></h2>
+                <p class="section-desc">Tu seguridad y bienestar son mi prioridad. Utilizo protocolos clínicos rigurosos para garantizar un servicio personalizado y de alta calidad.</p>
+            </div>
+            <div class="clinical-grid">
+                <div class="clinical-card reveal">
+                    <div class="clinical-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <h3>Ficha Clínica Personalizada</h3>
+                    <p>Documento confidencial que recopila información relevante de tu estado de salud antes de iniciar cualquier sesión. Esta anamnesis permite identificar antecedentes médicos, hábitos y objetivos, garantizando un servicio seguro.</p>
+                    <span class="clinical-badge">Confidencial</span>
+                </div>
+                <div class="clinical-card reveal">
+                    <div class="clinical-icon"><i class="fas fa-file-signature"></i></div>
+                    <h3>Consentimiento Informado</h3>
+                    <p>Documento que garantiza tu derecho a estar informado/a sobre los objetivos y procedimientos de la terapia. Aceptas libremente la realización del procedimiento, manteniendo siempre tu confidencialidad.</p>
+                    <span class="clinical-badge">Transparencia</span>
+                </div>
+                <div class="clinical-card reveal">
+                    <div class="clinical-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Seguimiento de Resultados</h3>
+                    <p>Registro profesional utilizado para monitorear tus progresos durante el tratamiento, especialmente en maderoterapia. Incluye control de peso, medidas corporales y observaciones por sesión.</p>
+                    <span class="clinical-badge">Resultados</span>
+                </div>
+                <div class="clinical-card reveal">
+                    <div class="clinical-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Evaluación Continua</h3>
+                    <p>Planificación de objetivos personalizados y registro detallado de cada sesión. Documentamos el servicio realizado, fecha y tu firma, asegurando un seguimiento ordenado y profesional.</p>
+                    <span class="clinical-badge">Personalizado</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECCION: PRECIOS (#precios) - Tabla comparativa completa
+         Tabla con 6 servicios x 3 opciones (sesion individual,
+         pack 6, pack 12). La columna "Pack 6 sesiones" esta
+         destacada con fondo dorado claro.
+         Todos los packs muestran el ahorro vs. precio individual.
+         EDITAR: cambia los montos en los <td class="price-tag">.
+         Si cambias un precio aqui, actualiza tambien:
+            - los .service-price-tag de la seccion #servicios
+            - el JSON-LD del <head> (busca "price")
+         Tras la tabla hay un CTA de reserva y el aviso sanitario.
+    ============================================================ -->
+    <section id="precios" class="pricing">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Tarifas Transparentes</span>
+                <h2 class="section-title">Invierte en tu <span class="italic">bienestar</span></h2>
+                <p class="section-desc">Precios claros, sin sorpresas. Todos los masajes incluyen ficha clínica, aceites esenciales y seguimiento profesional.</p>
+            </div>
+            <div class="pricing-table-wrap reveal">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Servicio</th>
+                            <th>Duración</th>
+                            <th>Sesión individual</th>
+                            <th class="featured-col">Pack 6 sesiones</th>
+                            <th>Pack 12 sesiones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><div class="svc-name">Masaje Relajante</div><div class="svc-duration">Anti-estrés</div></td>
+                            <td>60 min</td>
+                            <td class="price-tag">$28.000</td>
+                            <td class="featured-col-cell price-tag">$150.000 <small class="savings-text">ahorra $18.000</small></td>
+                            <td class="price-tag">$276.000 <small class="savings-text">ahorra $60.000</small></td>
+                        </tr>
+                        <tr>
+                            <td><div class="svc-name">Masaje Descontracturante</div><div class="svc-duration">Alivio muscular profundo</div></td>
+                            <td>60 min</td>
+                            <td class="price-tag">$28.000</td>
+                            <td class="featured-col-cell price-tag">$150.000 <small class="savings-text">ahorra $18.000</small></td>
+                            <td class="price-tag">$276.000 <small class="savings-text">ahorra $60.000</small></td>
+                        </tr>
+                        <tr>
+                            <td><div class="svc-name">Maderoterapia</div><div class="svc-duration">Modelado corporal</div></td>
+                            <td>60 min</td>
+                            <td class="price-tag">$35.000</td>
+                            <td class="featured-col-cell price-tag">$170.000 <small class="savings-text">ahorra $40.000</small></td>
+                            <td class="price-tag">$300.000 <small class="savings-text">ahorra $120.000</small></td>
+                        </tr>
+                        <tr>
+                            <td><div class="svc-name">Drenaje Linfático</div><div class="svc-duration">Anti-inflamatorio</div></td>
+                            <td>60 min</td>
+                            <td class="price-tag">$35.000</td>
+                            <td class="featured-col-cell price-tag">$185.000 <small class="savings-text">ahorra $25.000</small></td>
+                            <td class="price-tag">$336.000 <small class="savings-text">ahorra $84.000</small></td>
+                        </tr>
+                        <tr>
+                            <td><div class="svc-name">Ventosas Móviles</div><div class="svc-duration">Sin marcas</div></td>
+                            <td>50 min</td>
+                            <td class="price-tag">$30.000</td>
+                            <td class="featured-col-cell price-tag">$157.000 <small class="savings-text">ahorra $23.000</small></td>
+                            <td class="price-tag">$288.000 <small class="savings-text">ahorra $72.000</small></td>
+                        </tr>
+                        <tr>
+                            <td><div class="svc-name">Piedras Calientes</div><div class="svc-duration">Relajación profunda</div></td>
+                            <td>75 min</td>
+                            <td class="price-tag">$40.000</td>
+                            <td class="featured-col-cell price-tag">$209.000 <small class="savings-text">ahorra $31.000</small></td>
+                            <td class="price-tag">$384.000 <small class="savings-text">ahorra $96.000</small></td>
+                        </tr>
+                        <tr class="savings-row">
+                            <td colspan="5">Todos los packs incluyen seguimiento de medidas, control por sesión y atención prioritaria</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="text-align: center; margin-top: 2.5rem;" class="reveal">
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">¿Listo para reservar? Elige el servicio y te llevo directamente a la agenda.</p>
+                <a href="#agendar" class="btn btn-primary" style="font-size: 1rem; padding: 1.1rem 2.3rem;">
+                    <i class="fas fa-calendar-check"></i> Reservar mi sesión <span class="btn-arrow">→</span>
+                </a>
+            </div>
+            <div class="sanitary-disclaimer reveal">
+                <i class="fa-solid fa-circle-info"></i>
+                <strong>Aviso:</strong> Los masajes de bienestar no constituyen tratamiento médico. Ante condiciones de salud específicas (lesiones, embarazo, condiciones crónicas), consulta previamente a tu médico. Pilar Quezada está certificada como masoterapeuta por el Instituto Profesional Los Leones, no emite diagnósticos médicos ni recetamiento farmacológico.
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECCION: TESTIMONIOS (#testimonios)
+         Carrusel con 3 reseñas. Auto-avanza cada 6s, con flechas
+         laterales y puntos indicadores.
+         EDITAR: añade/copia bloques .testimonial-card. Recuerda
+         actualizar tambien el total en los aria-label.
+    ============================================================ -->
+    <section id="testimonios" class="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Testimonios</span>
+                <h2 class="section-title">Lo que dicen <span class="italic">mis clientes</span></h2>
+                <p class="section-desc">Historias reales de personas que encontraron su instante de calma.</p>
+            </div>
+            <div class="testimonial-slider reveal" role="region" aria-label="Testimonios de clientes" aria-roledescription="carrusel">
+                <button class="testimonial-prev" id="testimonialPrev" aria-label="Testimonio anterior"><i class="fas fa-chevron-left"></i></button>
+                <button class="testimonial-next" id="testimonialNext" aria-label="Testimonio siguiente"><i class="fas fa-chevron-right"></i></button>
+                <div class="testimonial-track">
+                    <div class="testimonial-slides" id="testimonialSlides" role="list">
+                        <div class="testimonial-card" role="listitem" aria-label="Testimonio 1 de 3">
+                            <div class="testimonial-quote">“</div>
+                            <p class="testimonial-text">Después de semanas de estrés intenso, encontré mi pausa. Salí renovada, con una energía increíble y el cuerpo completamente liberado. Un servicio exquisito y profesional.</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">C</div>
+                                <div class="author-info">
+                                    <h4>Carolina M.</h4>
+                                    <span>Clienta frecuente</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card" role="listitem" aria-label="Testimonio 2 de 3">
+                            <div class="testimonial-quote">“</div>
+                            <p class="testimonial-text">Llevaron el bienestar a nuestra empresa y fue un éxito total. El equipo quedó encantado, más productivo y con mejor ánimo. Sin duda lo repetiremos cada mes.</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">R</div>
+                                <div class="author-info">
+                                    <h4>Roberto S.</h4>
+                                    <span>Gerente de RRHH</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card" role="listitem" aria-label="Testimonio 3 de 3">
+                            <div class="testimonial-quote">“</div>
+                            <p class="testimonial-text">La maderoterapia cambió mi cuerpo y mi autoestima. En pocas sesiones noté resultados increíbles. El trato es exquisito, profesional y muy humano.</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">A</div>
+                                <div class="author-info">
+                                    <h4>Andrea L.</h4>
+                                    <span>Clienta verificada</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="testimonial-dots" id="testimonialDots">
+                    <button class="testimonial-dot active" data-slide="0" aria-label="Ver testimonio 1"></button>
+                    <button class="testimonial-dot" data-slide="1" aria-label="Ver testimonio 2"></button>
+                    <button class="testimonial-dot" data-slide="2" aria-label="Ver testimonio 3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECCION: FAQ - Preguntas frecuentes (acordeon)
+         6 preguntas que se expanden al hacer clic.
+         Las preguntas y respuestas estan DUPLICADAS en el bloque
+           JSON-LD del <head> (para que Google las indexe). Si cambias
+           algo aqui, cambialo tambien alla arriba.
+    ============================================================ -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Preguntas Frecuentes</span>
+                <h2 class="section-title">Resuelvo tus <span class="italic">dudas</span></h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        ¿Con cuánta anticipación debo agendar?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Recomiendo agendar con al menos 24-48 horas de anticipación para garantizar disponibilidad. Sin embargo, hago mi mejor esfuerzo por atender solicitudes de último minuto según la agenda del día.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        ¿Atiendes a domicilio? ¿Tiene costo adicional?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí, atiendo a domicilio y en empresas. El costo del traslado varía según la ubicación. Contáctame por WhatsApp para cotizar tu sesión en casa o en tu oficina.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        ¿Qué debo llevar a mi sesión?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Solo tú y tus ganas de relajarte. Yo llevo todo lo necesario: camilla profesional, sábanas, aceites esenciales, música ambiental y toallas. Solo necesitas ropa cómoda.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        ¿El drenaje linfático o las ventosas duelen?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No. El drenaje es una técnica muy suave y sin dolor. Las ventosas que utilizo son móviles, se desplazan por la piel sin quedarse fijas, por lo que no dejan marcas visibles y solo generan una sensación de alivio.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        ¿Ofrecen servicio para empresas?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí, tengo programas corporativos completos con jornadas de masajes in-company, planes mensuales y facturación empresarial. Escríbeme para diseñar un plan a la medida de tu equipo.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" aria-expanded="false">
+                        ¿Cuáles son las formas de pago?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Acepto efectivo, transferencia bancaria y pagos con tarjeta (débito y crédito). Para empresas, trabajo con facturación electrónica.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECCION: RESERVA (#agendar) - Solo por WhatsApp
+         Tarjeta con icono verde, titulo, descripcion, boton grande
+         "Agendar por WhatsApp" (abre chat con mensaje precargado),
+         telefono clicable y horario de atencion.
+         No usa Calendly ni sistemas complejos: todo se coordina por
+         chat directo con Pilar.
+         EDITAR MENSAJE: cambia el parametro ?text= del href del boton.
+    ============================================================ -->
+    <section id="agendar" class="booking-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Reserva tu sesión</span>
+                <h2 class="section-title">Agenda directo por <span class="italic">WhatsApp</span></h2>
+                <p class="section-desc">Escríbeme por WhatsApp y coordinamos día, horario y servicio en minutos. Respuesta rápida y personalizada.</p>
+            </div>
+            <div class="booking-wrap reveal">
+                <div class="booking-card">
+                    <div class="booking-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h3>Conversamos y agendamos tu sesión</h3>
+                    <p>Cuéntame qué servicio te interesa, tu disponibilidad y si prefieres atención en San Miguel o a domicilio. Te respondo personalmente y confirmamos tu reserva.</p>
+                    <a href="https://wa.me/56973002012?text=Hola%20Pilar,%20quiero%20agendar%20una%20sesión%20¿Qué%20horarios%20tienes%20disponibles?" class="btn btn-primary" target="_blank" rel="noopener noreferrer" style="font-size: 1.05rem; padding: 1.1rem 2.5rem;">
+                        <i class="fab fa-whatsapp"></i> Agendar por WhatsApp
+                    </a>
+                    <a href="tel:+56973002012" class="booking-phone">+56 9 7300 2012</a>
+                    <div class="booking-hours">
+                        <strong>Horario de atención:</strong><br>
+                        Lun-Vie: 09:00 – 20:00 | Sáb: 10:00 – 14:00
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECCION: CONTACTO (#contacto)
+         Columna izquierda: datos de contacto (WhatsApp, email,
+         Instagram, direccion, horario).
+         Columna derecha: formulario que al enviarse abre WhatsApp
+         con todos los datos ya armados en el mensaje.
+         No usa Web3Forms ni ningun servicio externo: cero cuentas,
+         cero claves, cero configuracion.
+         Para cambiar el numero: busca WHATSAPP_NUMBER en el JS.
+    ============================================================ -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Contáctame</span>
+                <h2 class="section-title">Hablemos de tu <span class="italic">bienestar</span></h2>
+                <p class="section-desc">¿Tienes preguntas o quieres agendar? Completa el formulario y te responderé a la brevedad.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info reveal-left">
+                    <h3>Información de Contacto</h3>
+                    <p>Estoy disponible para atenderte de lunes a sábado. No dudes en contactarme por cualquier consulta.</p>
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <strong>WhatsApp</strong><br>
+                                <a href="https://wa.me/56973002012" target="_blank" rel="noopener noreferrer">+56 9 7300 2012</a>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                <a href="mailto:instantedecalma.masaje@gmail.com">instantedecalma.masaje@gmail.com</a>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fab fa-instagram"></i>
+                            <div>
+                                <strong>Instagram</strong><br>
+                                <a href="https://instagram.com/instantedecalma.masajes" target="_blank" rel="noopener noreferrer">@instantedecalma.masajes</a>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Ubicación</strong><br>
+                                <span>Llano Subercaseaux 3791, San Miguel</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Horario de atención</strong><br>
+                                <span>Lun-Vie: 09:00 – 20:00 | Sáb: 10:00 – 14:00</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-form reveal-right">
+                    <h3>Envíame un mensaje</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo *</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+                        <div class="form-group">
+                            <label for="servicio">Servicio de interés</label>
+                            <select id="servicio" name="servicio">
+                                <option value="">Selecciona un servicio</option>
+                                <option value="Masaje Relajante">Masaje Relajante</option>
+                                <option value="Masaje Descontracturante">Masaje Descontracturante</option>
+                                <option value="Maderoterapia">Maderoterapia</option>
+                                <option value="Drenaje Linfático">Drenaje Linfático</option>
+                                <option value="Ventosas">Ventosas</option>
+                                <option value="Piedras Calientes">Piedras Calientes</option>
+                                <option value="Servicio Corporativo">Servicio Corporativo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" required placeholder="Cuéntame qué necesitas..."></textarea>
+                        </div>
+                        <button type="submit" class="form-submit" id="submitBtn"><i class="fab fa-whatsapp"></i> Enviar por WhatsApp</button>
+                        <div class="form-success" id="formSuccess">
+                            ✓ ¡Se abrió WhatsApp con tu mensaje listo! Presiona enviar para completar.
+                        </div>
+                        <div class="form-error" id="formError" style="display:none;">
+                            ✗ No se pudo abrir WhatsApp. Escríbeme directo al +56 9 7300 2012.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECCION: COTIZACION CORPORATIVA (#contacto-corporativo)
+         Formulario especifico para empresas que quieren cotizar
+         bienestar corporativo. Pide: empresa, contacto, email,
+         telefono, n empleados, plan de interes, mensaje.
+         Tambien envia por WhatsApp (mismo numero que el otro).
+    ============================================================ -->
+    <section id="contacto-corporativo" class="contact" style="background: var(--bg-primary);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Empresas</span>
+                <h2 class="section-title">Cotización <span class="italic">Corporativa</span></h2>
+                <p class="section-desc">¿Interesado en llevar bienestar a tu empresa? Completa este formulario y te enviaré una propuesta personalizada.</p>
+            </div>
+            <div class="contact-form reveal" style="max-width: 700px; margin: 0 auto;">
+                <h3>Solicitar cotización corporativa</h3>
+                <form id="corpForm">
+                    <div class="form-group">
+                        <label for="empresa">Nombre de la empresa *</label>
+                        <input type="text" id="empresa" name="empresa" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contacto-nombre">Persona de contacto *</label>
+                        <input type="text" id="contacto-nombre" name="contacto-nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contacto-email">Email corporativo *</label>
+                        <input type="email" id="contacto-email" name="contacto-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contacto-telefono">Teléfono</label>
+                        <input type="tel" id="contacto-telefono" name="contacto-telefono">
+                    </div>
+                    <div class="form-group">
+                        <label for="num-empleados">Número de empleados</label>
+                        <select id="num-empleados" name="num-empleados">
+                            <option value="">Selecciona un rango</option>
+                            <option value="1-10">1-10 empleados</option>
+                            <option value="11-50">11-50 empleados</option>
+                            <option value="51-100">51-100 empleados</option>
+                            <option value="101-500">101-500 empleados</option>
+                            <option value="500+">Más de 500 empleados</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="plan-interes">Plan de interés</label>
+                        <select id="plan-interes" name="plan-interes">
+                            <option value="">Selecciona un plan</option>
+                            <option value="Plan Básico">Plan Básico (4 horas)</option>
+                            <option value="Plan Empresarial">Plan Empresarial (8 horas)</option>
+                            <option value="Plan Premium">Plan Premium (Mensual)</option>
+                            <option value="No estoy seguro">No estoy seguro, necesito asesoría</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje-corp">Mensaje adicional</label>
+                        <textarea id="mensaje-corp" name="mensaje-corp" placeholder="Cuéntame sobre tus necesidades específicas..."></textarea>
+                    </div>
+                    <button type="submit" class="form-submit" id="corpSubmitBtn"><i class="fab fa-whatsapp"></i> Solicitar por WhatsApp</button>
+                    <div class="form-success" id="formSuccessCorp">
+                        ✓ ¡Se abrió WhatsApp con tu solicitud lista! Presiona enviar para completar.
+                    </div>
+                    <div class="form-error" id="formErrorCorp" style="display:none;">
+                        ✗ No se pudo abrir WhatsApp. Escríbeme directo al +56 9 7300 2012.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECCION: CTA FINAL - Ultima llamada a la accion
+         Banda verde con degradado dorado y boton grande "Reservar
+         mi sesion". Aparece justo antes del footer.
+    ============================================================ -->
+    <section class="cta-final">
+        <div class="cta-content reveal">
+            <h2>¿Lista para tu <span class="italic">instante de calma</span>?</h2>
+            <p>Agenda tu sesión hoy y regálate el bienestar que mereces. Tu cuerpo y mente te lo agradecerán.</p>
+            <a href="#agendar" class="btn btn-primary" style="font-size: 1rem; padding: 1.2rem 2.5rem;">
+                <i class="fas fa-calendar-check"></i> Reservar mi sesión
+                <span class="btn-arrow">→</span>
+            </a>
+            <div class="cta-contact">
+                <div class="cta-contact-item">
+                    <i class="fas fa-map-marker-alt"></i> San Miguel, Santiago
+                </div>
+                <div class="cta-contact-item">
+                    <i class="fab fa-instagram"></i> 
+                    <a href="https://instagram.com/instantedecalma.masajes" target="_blank" rel="noopener noreferrer">@instantedecalma.masajes</a>
+                </div>
+                <div class="cta-contact-item">
+                    <i class="fas fa-envelope"></i> 
+                    <a href="mailto:instantedecalma.masaje@gmail.com">instantedecalma.masaje@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER - Pie de pagina
+         4 columnas: marca+redes sociales, navegacion, servicios,
+         contacto. Abajo: copyright + enlaces legales.
+         EDITAR: actualiza el año del (c) si es necesario, y los
+         enlaces de privacidad/terminos cuando tengas esas paginas.
+    ============================================================ -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3><i class="fa-solid fa-leaf" style="color: var(--color-gold); margin-right: 0.3rem;"></i> Instante de <span>Calma</span></h3>
+                    <p>"Pausa. Respira. Vuelve Mejor."</p>
+                    <p style="font-size: 0.85rem; margin-bottom: 1rem;">Pilar Alejandra Quezada Param<br>Masoterapeuta Certificada</p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/instantedecalma.masajes" target="_blank" aria-label="Instagram de Instante de Calma" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/56973002012" target="_blank" aria-label="WhatsApp de Instante de Calma" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:instantedecalma.masaje@gmail.com" aria-label="Email de Instante de Calma">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Sobre Pilar</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#clientes">Clientes</a></li>
+                        <li><a href="#empresas">Empresas</a></li>
+                        <li><a href="#ubicaciones">Ubicación</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#servicios">Drenaje Linfático</a></li>
+                        <li><a href="#servicios">Maderoterapia</a></li>
+                        <li><a href="#servicios">Descontracturante</a></li>
+                        <li><a href="#servicios">Ventosas</a></li>
+                        <li><a href="#servicios">Piedras Calientes</a></li>
+                        <li><a href="#empresas">Bienestar Corporativo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="https://wa.me/56973002012" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                        <li><a href="https://instagram.com/instantedecalma.masajes" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                        <li><a href="mailto:instantedecalma.masaje@gmail.com">Email</a></li>
+                        <li><a href="#precios">Precios</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Instante de Calma - Pilar Quezada. Todos los derechos reservados.</p>
+                <p>Masoterapeuta certificada - Instituto Profesional Los Leones</p>
+                <p style="margin-top: 1rem; font-size: 0.78rem; opacity: 0.7;">
+                    <a href="#" style="color: inherit; text-decoration: underline;">Política de Privacidad</a> · 
+                    <a href="#" style="color: inherit; text-decoration: underline;">Términos de Servicio</a> · 
+                    <a href="#" style="color: inherit; text-decoration: underline;">Descargo Sanitario</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky mobile CTA bar -->
+    <!-- Barra fija inferior en movil: WhatsApp + Reservar -->
+    <div class="mobile-cta-bar" id="mobileCtaBar">
+        <a href="https://wa.me/56973002012?text=Hola%20Pilar,%20quiero%20hacer%20una%20consulta" class="mcb-wa" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="#agendar" class="mcb-cal">
+            <i class="fas fa-calendar-check"></i> Reservar
+        </a>
+    </div>
+
+    <!-- Burbuja flotante de WhatsApp (fija abajo a la derecha) -->
+    <a href="https://wa.me/56973002012" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ============================================================
+         JAVASCRIPT - Toda la interactividad de la pagina
+         Orden de los bloques:
+           1. Carga progresiva de imagenes
+           2. Preloader
+           3. Barra de progreso de scroll
+           4. Navbar (cambio al hacer scroll + menu movil)
+           5. Aparicion progresiva al scroll (reveal)
+           6. Contadores animados
+           7. Carrusel de testimonios
+           8. Acordeon de FAQ
+           9. Envio de formularios (abre WhatsApp con el mensaje)
+          10. Scroll suave al hacer clic en links internos
+          11. Cierre de menu movil (Escape / clic fuera)
+          12. Barra CTA movil (mostrar/ocultar)
+          13. Botones magneticos (efecto cursor)
+          14. Respeto a "reduced motion"
+    ============================================================ -->
+    <script>
+        // ============================================================
+        // CARGA DE IMAGENES - Marca las imagenes como "loaded" cuando
+        // terminan de cargar, para quitar el efecto shimmer (placeholder
+        // animado) y mostrar la foto real.
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.classList.add('loading');
+                if (img.complete) {
+                    img.classList.remove('loading');
+                    img.parentElement?.classList.add('loaded');
+                }
+                img.addEventListener('load', () => {
+                    img.classList.remove('loading');
+                    img.parentElement?.classList.add('loaded');
+                });
+                img.addEventListener('error', () => {
+                    img.classList.remove('loading');
+                    img.parentElement?.classList.add('loaded');
+                });
+            });
+        });
+
+        // ============================================================
+        // PRELOADER - Pantalla de carga inicial
+        // Muestra "Instante de Calma" con barra de progreso. Se oculta
+        // tras 1.2s (o 2.5s maximo de seguridad). Solo aparece una vez
+        // por sesion (usando sessionStorage) para no molestar.
+        // Para desactivarlo: comenta todo este bloque.
+        // ============================================================
+        // ===== PRELOADER (max 1.2s, skip on repeat visits) =====
+        (function initPreloader() {
+            const preloader = document.getElementById('preloader');
+            if (!preloader) return;
+            if (sessionStorage.getItem('idc_preloader_seen') === '1') {
+                preloader.classList.add('hidden');
+                return;
+            }
+            const progress = document.getElementById('preloaderProgress');
+            const start = performance.now();
+            const MAX_MS = 1200;
+            let width = 0;
+            const tick = () => {
+                const elapsed = performance.now() - start;
+                width = Math.min(100, (elapsed / MAX_MS) * 100);
+                if (progress) progress.style.width = width + '%';
+                if (width >= 100) {
+                    setTimeout(() => {
+                        preloader.classList.add('hidden');
+                        sessionStorage.setItem('idc_preloader_seen', '1');
+                    }, 200);
+                } else {
+                    requestAnimationFrame(tick);
+                }
+            };
+            if (document.readyState === 'complete') requestAnimationFrame(tick);
+            else window.addEventListener('load', () => requestAnimationFrame(tick));
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+                sessionStorage.setItem('idc_preloader_seen', '1');
+            }, 2500);
+        })();
+
+        // ============================================================
+        // BARRA DE PROGRESO DE SCROLL - Linea dorada arriba del todo.
+        // Crece segun cuanto se ha recorrido la pagina. Decorativa.
+        // ============================================================
+        const scrollProgress = document.getElementById('scrollProgress');
+        window.addEventListener('scroll', () => {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight - windowHeight;
+            const scrolled = (window.scrollY / documentHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        });
+
+        // ============================================================
+        // NAVBAR - Cambia de transparente a crema solida al hacer
+        // scroll mas de 50px. Mejora la legibilidad del menu.
+        // ============================================================
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // ============================================================
+        // MENU MOVIL - Boton hamburguesa que abre/cierra el menu
+        // lateral en movil. Se cierra automaticamente al hacer clic
+        // en un enlace.
+        // ============================================================
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // ============================================================
+        // APARICION PROGRESIVA (reveal) - Los elementos con clase
+        // .reveal, .reveal-left, .reveal-right, .reveal-scale aparecen
+        // suavemente al entrar en el viewport. Usa IntersectionObserver
+        // (eficiente, no ralentiza el scroll).
+        // ============================================================
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // ============================================================
+        // CONTADORES ANIMADOS - Los numeros de la seccion .stats
+        // (clientes, especialidades, etc.) cuentan desde 0 hasta el
+        // valor al aparecer en pantalla.
+        // Atributos en el HTML: data-target (valor final),
+        // data-divide (divisor, para mostrar 4.9 en vez de 49),
+        // data-suffix (texto al final, ej. "+" o "/5").
+        // ============================================================
+        // ===== COUNTER ANIMATION (supports data-suffix and data-divide) =====
+        const counters = document.querySelectorAll('[data-target]');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = +el.getAttribute('data-target');
+                    const divide = +el.getAttribute('data-divide') || 1;
+                    const suffix = el.getAttribute('data-suffix') || '+';
+                    let current = 0;
+                    const increment = target / 50;
+                    const format = (val) => {
+                        const v = val / divide;
+                        const text = divide > 1 ? v.toFixed(1) : Math.ceil(val);
+                        return text + suffix;
+                    };
+                    const updateCounter = () => {
+                        if (current < target) {
+                            current += increment;
+                            el.textContent = format(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            el.textContent = format(target);
+                        }
+                    };
+                    updateCounter();
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(c => counterObserver.observe(c));
+
+        // ============================================================
+        // CARRUSEL DE TESTIMONIOS - Rotacion automatica cada 6s
+        // con flechas laterales, puntos indicadores, navegacion por
+        // teclado (flechas izq/der) y pausa al pasar el raton.
+        // ============================================================
+        // ===== TESTIMONIAL SLIDER (dots + prev/next + keyboard + pause on hover) =====
+        const slides = document.getElementById('testimonialSlides');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        const prevBtn = document.getElementById('testimonialPrev');
+        const nextBtn = document.getElementById('testimonialNext');
+        const sliderWrap = document.querySelector('.testimonial-slider');
+        let currentSlide = 0;
+        const totalSlides = dots.length;
+        let autoTimer = null;
+
+        const goToSlide = (index) => {
+            currentSlide = (index + totalSlides) % totalSlides;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+                dot.setAttribute('aria-current', i === currentSlide ? 'true' : 'false');
+            });
+        };
+
+        const startAuto = () => {
+            if (autoTimer) clearInterval(autoTimer);
+            autoTimer = setInterval(() => goToSlide(currentSlide + 1), 6000);
+        };
+        const stopAuto = () => { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } };
+
+        dots.forEach((dot, index) => dot.addEventListener('click', () => { goToSlide(index); startAuto(); }));
+        if (prevBtn) prevBtn.addEventListener('click', () => { goToSlide(currentSlide - 1); startAuto(); });
+        if (nextBtn) nextBtn.addEventListener('click', () => { goToSlide(currentSlide + 1); startAuto(); });
+
+        if (sliderWrap) {
+            sliderWrap.setAttribute('tabindex', '0');
+            sliderWrap.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') { goToSlide(currentSlide - 1); startAuto(); }
+                if (e.key === 'ArrowRight') { goToSlide(currentSlide + 1); startAuto(); }
+            });
+            sliderWrap.addEventListener('mouseenter', stopAuto);
+            sliderWrap.addEventListener('mouseleave', startAuto);
+        }
+
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            startAuto();
+        }
+
+        // ============================================================
+        // FAQ ACORDEON - Las preguntas se expanden/contraen al hacer
+        // clic. Solo una abierta a la vez. Actualiza aria-expanded
+        // para accesibilidad.
+        // ============================================================
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                    faq.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                });
+                if (!isActive) {
+                    item.classList.add('active');
+                    question.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // ============================================================
+        // FORMULARIOS - Envio directo por WhatsApp (sin servicios
+        // externos como Web3Forms). Al enviar, se construye un mensaje
+        // con los datos del formulario y se abre WhatsApp con todo el
+        // texto ya escrito. Cero configuracion, cero cuentas.
+        // Para cambiar el numero de WhatsApp: edita WHATSAPP_NUMBER.
+        // ============================================================
+        const WHATSAPP_NUMBER = '56973002012';
+
+        const handleWhatsAppForm = (formId, successId, submitBtnId, buildMessage) => {
+            const form = document.getElementById(formId);
+            const success = document.getElementById(successId);
+            const submitBtn = document.getElementById(submitBtnId);
+            if (!form) return;
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                success.classList.remove('show');
+
+                // Construir el mensaje de WhatsApp con los datos del formulario
+                const message = buildMessage(form);
+                const whatsappUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message);
+
+                // Abrir WhatsApp en una nueva pestaña
+                window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+                // Mostrar mensaje de exito y limpiar el formulario
+                success.classList.add('show');
+                form.reset();
+                setTimeout(() => { success.classList.remove('show'); }, 6000);
+            });
+        };
+
+        // Formulario de contacto general
+        handleWhatsAppForm('contactForm', 'formSuccess', 'submitBtn', (form) => {
+            const nombre = form.querySelector('#nombre').value.trim();
+            const email = form.querySelector('#email').value.trim();
+            const telefono = form.querySelector('#telefono').value.trim();
+            const servicio = form.querySelector('#servicio').value;
+            const mensaje = form.querySelector('#mensaje').value.trim();
+
+            let text = '*Nuevo mensaje desde la web - Instante de Calma*\n\n';
+            text += '*Nombre:* ' + nombre + '\n';
+            text += '*Email:* ' + email + '\n';
+            if (telefono) text += '*Telefono:* ' + telefono + '\n';
+            if (servicio) text += '*Servicio de interes:* ' + servicio + '\n';
+            text += '\n*Mensaje:*\n' + mensaje;
+            return text;
+        });
+
+        // Formulario de cotizacion corporativa
+        handleWhatsAppForm('corpForm', 'formSuccessCorp', 'corpSubmitBtn', (form) => {
+            const empresa = form.querySelector('#empresa').value.trim();
+            const contacto = form.querySelector('#contacto-nombre').value.trim();
+            const email = form.querySelector('#contacto-email').value.trim();
+            const telefono = form.querySelector('#contacto-telefono').value.trim();
+            const empleados = form.querySelector('#num-empleados').value;
+            const plan = form.querySelector('#plan-interes').value;
+            const mensaje = form.querySelector('#mensaje-corp').value.trim();
+
+            let text = '*Cotizacion corporativa - Instante de Calma*\n\n';
+            text += '*Empresa:* ' + empresa + '\n';
+            text += '*Persona de contacto:* ' + contacto + '\n';
+            text += '*Email:* ' + email + '\n';
+            if (telefono) text += '*Telefono:* ' + telefono + '\n';
+            if (empleados) text += '*N de empleados:* ' + empleados + '\n';
+            if (plan) text += '*Plan de interes:* ' + plan + '\n';
+            if (mensaje) text += '\n*Mensaje:*\n' + mensaje;
+            return text;
+        });
+
+        // ============================================================
+        // SCROLL SUAVE - Al hacer clic en un link interno (ej. los
+        // del menu), baja suavemente a esa seccion en vez de saltar.
+        // Compensa 80px para que el titulo no quede tapado por el
+        // navbar fijo.
+        // ============================================================
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ============================================================
+        // CIERRE DEL MENU MOVIL - Se cierra al pulsar Escape o al
+        // hacer clic fuera del menu. Mejora la usabilidad en movil.
+        // ============================================================
+        // ===== MOBILE MENU: close on Escape and outside click =====
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // ============================================================
+        // BARRA CTA MOVIL - La barra fija inferior (WhatsApp +
+        // Reservar) aparece solo cuando el usuario paso el hero y
+        // se oculta al llegar al footer para no taparlo.
+        // ============================================================
+        // ===== STICKY MOBILE CTA BAR (show after hero, hide at footer) =====
+        const mobileCtaBar = document.getElementById('mobileCtaBar');
+        if (mobileCtaBar) {
+            const heroEl = document.getElementById('inicio');
+            const footerEl = document.querySelector('footer');
+            const toggleMobileCta = () => {
+                if (window.innerWidth <= 768) {
+                    const scrolledPastHero = heroEl ? window.scrollY > heroEl.offsetHeight - 100 : window.scrollY > 400;
+                    const reachedFooter = footerEl ? window.scrollY + window.innerHeight > footerEl.offsetTop + 100 : false;
+                    mobileCtaBar.classList.toggle('show', scrolledPastHero && !reachedFooter);
+                } else {
+                    mobileCtaBar.classList.remove('show');
+                }
+            };
+            window.addEventListener('scroll', toggleMobileCta, { passive: true });
+            window.addEventListener('resize', toggleMobileCta);
+            toggleMobileCta();
+        }
+
+        // ============================================================
+        // BOTONES MAGNETICOS - Los botones siguen ligeramente al
+        // cursor (efecto sutil). Solo en dispositivos con raton
+        // (pointer:fine), nunca en tactil. Se desactiva si el usuario
+        // pide "reduced motion".
+        // ============================================================
+        // ===== MAGNETIC BUTTONS (subtle cursor-following, fine pointer only) =====
+        if (window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            const magnets = document.querySelectorAll('.btn, .btn-nav, .form-submit');
+            magnets.forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.2}px)`;
+                });
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = '';
+                });
+            });
+        }
+
+        // ============================================================
+        // REDUCED MOTION - Si el usuario tiene activada la opcion
+        // "reducir movimiento" en su sistema operativo (preferencia
+        // de accesibilidad), desactiva todas las animaciones.
+        // ============================================================
+        // ===== REDUCED MOTION =====
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.querySelectorAll('*').forEach(el => {
+                el.style.animation = 'none';
+                el.style.transition = 'none';
+            });
+        }
+    </script>
+</body>
+</html>
